@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.174b078b.css",
-    "main.js": "/static/js/main.085d6a7c.js",
-    "static/js/787.7f4017fa.chunk.js": "/static/js/787.7f4017fa.chunk.js",
-    "static/media/girl_warrior.png": "/static/media/girl_warrior.739d32c2ab98615d20f2.png",
-    "static/media/foret_fantasy_2.png": "/static/media/foret_fantasy_2.b509810dca3111dccbf8.png",
-    "static/media/foret_fantasy_1.png": "/static/media/foret_fantasy_1.ba7bb6b0ef43d763db14.png",
-    "index.html": "/index.html",
-    "static/media/image_icone_loupe.svg": "/static/media/image_icone_loupe.82d3481840537f55a197ec3b7d2e44f5.svg",
-    "main.174b078b.css.map": "/static/css/main.174b078b.css.map",
-    "main.085d6a7c.js.map": "/static/js/main.085d6a7c.js.map",
-    "787.7f4017fa.chunk.js.map": "/static/js/787.7f4017fa.chunk.js.map"
+    "main.css": "/site_JDR/static/css/main.e8ff5706.css",
+    "main.js": "/site_JDR/static/js/main.ab261d6f.js",
+    "static/js/787.7f4017fa.chunk.js": "/site_JDR/static/js/787.7f4017fa.chunk.js",
+    "static/media/girl_warrior.png": "/site_JDR/static/media/girl_warrior.739d32c2ab98615d20f2.png",
+    "static/media/foret_fantasy_2.png": "/site_JDR/static/media/foret_fantasy_2.b509810dca3111dccbf8.png",
+    "static/media/foret_fantasy_1.png": "/site_JDR/static/media/foret_fantasy_1.ba7bb6b0ef43d763db14.png",
+    "index.html": "/site_JDR/index.html",
+    "static/media/image_icone_loupe.svg": "/site_JDR/static/media/image_icone_loupe.82d3481840537f55a197ec3b7d2e44f5.svg",
+    "main.e8ff5706.css.map": "/site_JDR/static/css/main.e8ff5706.css.map",
+    "main.ab261d6f.js.map": "/site_JDR/static/js/main.ab261d6f.js.map",
+    "787.7f4017fa.chunk.js.map": "/site_JDR/static/js/787.7f4017fa.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.174b078b.css",
-    "static/js/main.085d6a7c.js"
+    "static/css/main.e8ff5706.css",
+    "static/js/main.ab261d6f.js"
   ]
 }
