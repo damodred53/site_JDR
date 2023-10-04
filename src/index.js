@@ -18,6 +18,7 @@ root.render(
         <Router>
           <Header />
             <Routes>
+              <Route path='/' Component={LandingPage}></Route>
               <Route path='/*' Component={LandingPage}></Route>
               <Route  path='/about' Component={About}></Route>
               <Route  path='/scene' Component={Scene}></Route>

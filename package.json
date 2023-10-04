@@ -2,7 +2,7 @@
   "name": "projet_jdr",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://damodred53.github.io/",
+  "homepage": "https://damodred53.github.io/site_JDR",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
