@@ -1,4 +1,4 @@
-import './App.css';
+/*import './App.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
@@ -24,9 +24,7 @@ function App() {
               <Route exact path='/form' Component={Form}></Route>
               <Route exact path='/contact' Component={Contact}></Route>
             </Routes>
-           
         </Router>
-        
     </React.StrictMode>
     
   );
@@ -42,4 +40,4 @@ const Footer2 = () => {
   <Footer />
   )
 }
-export  {Footer2};
+export  {Footer2};*/
