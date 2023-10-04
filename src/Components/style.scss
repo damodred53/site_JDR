@@ -1,0 +1,396 @@
+/* Mes imports */
+
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&family=Dancing+Script:wght@400;500;600;700&family=Tektur&family=Yusei+Magic&display=swap');
+
+/*Déclaration de mes variables Sass */
+
+$color_text: white;
+$border_radius: 10px;
+$Dancing_script: Dancing Script;
+
+/* Déclaration de mes mixins */
+@mixin center_row_flex_display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin center_column_flex_display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin space_row_flex_display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin black_border {
+    border: black 1px solid;
+}
+
+@mixin underline {
+    border-bottom: white 1px solid;
+}
+
+/* règles globales */
+
+*{
+    margin: 0;
+    
+    
+}
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+/* Le composant Header */
+
+.header {
+    color: $color_text;
+    height: 150px;
+    width: 100%;
+    background-color:black;
+    font-family: $Dancing_script;
+
+    .welcome_and_navbar{
+        height: 100%;
+        font-style: italic;
+        @include space_row_flex_display;
+        h1 {
+            font-size: 60px;
+        }
+
+        .navbar_Header{
+            text-decoration: none;
+        }
+
+        .navbar_Header_list {
+            @include center_row_flex_display;
+            gap: 20%;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 34px;
+            white-space: nowrap;
+            list-style-type: none;
+            li a{
+                text-decoration: none;
+            }
+            li a:visited {
+                color: $color_text;
+            }   
+        }
+    }
+    .underline {
+        @include underline;
+    }
+}
+
+/* Le composant Landing-page - accueil */
+
+/* Le composant Introduction */
+
+.text_presentation {
+    font-size: 30px;
+}
+
+
+
+/* Le composant Présentation */
+.div_presentation{
+    height: 860px;
+    width: 100%;
+    display: flex;
+    
+    flex-direction: column;
+    align-items: flex-start;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/girl_warrior.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+    .explanation_landingpage {
+        @include center_column_flex_display;
+        display: flex;
+        flex-direction: column;
+        height: 50%;
+        width: 100%;
+        font-size: 24px;
+        font-weight: bold;
+        font-style: italic;
+        color: $color_text;
+    }
+   
+    .search_scene {
+       
+       width: 100%;
+       height: 50%;
+       color: $color_text;
+
+       .search_div {
+        
+        height: 100%;
+        width: 100%;
+        
+        form {
+            @include center_row_flex_display;
+            padding: 3%;
+            border: black 1px solid;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+        .title_author_research {
+            
+            @include center_column_flex_display;
+            font-size: 24px;
+            font-weight: bold;
+            padding-right: 5%;
+            width: 25%;
+            input {
+                height: 30px;
+                width: 100%;
+                border-radius: $border_radius;
+                font-weight: bold;
+                font-style: italic;
+                padding-left: 5%;
+            }
+            
+        }
+        .other_attributes_button {
+            height: 150px;
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            
+            
+            
+            .first_row_research {
+                @include space_row_flex_display;
+                font-weight: bold;
+                padding-top: 3%;
+                gap: 5%;
+                
+                select {
+                    height: 30px;
+                    font-style: italic;
+                    border-radius: $border_radius;
+                    padding-left: 5%;
+                    font-weight: bold;
+                }
+            }
+
+            .button_research {
+                padding-right: 20%;
+                button {
+                    @include center_row_flex_display;
+                    height: 40px;
+                    font-weight: bold;
+                    font-size: 20px;
+                    gap: 10%;
+                    white-space: nowrap;
+                    padding-left: 10%;;
+                    padding-right: 10%;                    border-radius: $border_radius;
+
+                }
+            }
+                
+                
+            
+            
+        }
+       }
+        
+    }
+
+}
+
+
+
+
+
+
+/* Le composant About */
+
+.about_text_presentation {
+    color: $color_text;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 855px;
+    text-align: center;
+    font-style: italic;
+    font-weight: bold;
+    
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/foret_fantasy_1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .about_text_presentation_text {
+    position: absolute;
+    top:15%;
+    left: 2%;
+    font-size: 40px;
+    width: 50%;
+    height: 780px;
+    border : $color_text 2px solid;
+    border-radius: $border_radius;
+    padding: 1% 2% 0% 2%;
+    background-color: rgba(0, 0, 0, 0.4);
+    }
+}
+
+/* Le composant présentation */
+
+.list_presentation {
+    list-style: none;
+
+    .under_list_presentation {
+        text-align: left;
+    }
+}
+
+/* Le composant formulaire de contact */
+
+.main_contact {
+    display: flex;
+    align-items: center;
+    height: 900px;
+    background-image: linear-gradient(rgba(0, 0, 0,0.3), rgba(0, 0, 0,0.3)),url('../assets/foret_fantasy_2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $color_text;
+}
+
+.projet_contact {
+    width: 50%;
+    font-size: 44px;
+    font-style: italic;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form_div_main {
+    border-radius: 10px;
+    height: 100%;
+    width: 50%;
+    .full_formulaire {
+        padding-right: 10%;
+        padding-top: 5%;
+        height: 100%;
+        .pseudonyme_and_text_div {
+            
+            display: flex;
+            font-size: 24px;
+            justify-content: space-between;
+            height: 100px; 
+            .under_div {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5%;
+                width: 45%;
+            }
+            input {
+                height: 30px;
+                width: 100%;
+                border-radius: $border_radius;
+            }       
+        }
+
+        .email_hard_duration_div {
+            display: flex;
+            justify-content: space-between;
+            .email_div{
+                display: flex;
+                align-items: center;
+                width: 50%;
+                font-size: 24px;
+                gap: 5%;
+                padding-bottom: 5%;
+            }
+            input {
+                height: 30px;
+                width: 100%;
+                border-radius: $border_radius;
+            }
+            .selections {
+                display: flex;
+                
+                justify-content: space-between;
+                width: 35%;
+                select {
+                    height: 50%;
+                    font-weight: bold;
+                    border-radius: $border_radius;
+                }
+            }
+        }
+        .description_gameplay_contact_div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            font-size: 24px;
+
+            .under_div_scene {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                textarea {
+                    width: 100%;
+                    height: 200px;
+                    border-radius: $border_radius;
+                    padding-left: 5%;
+                    font-style: italic;
+                    font-weight: bold;
+                    padding-top: 2%;
+                }
+                .textarea::placeholder {
+                    padding-top: 5%;
+                }
+            }
+        }
+        .button_contact {
+            width: 100%;
+            text-align: center;
+            padding-top: 3%;
+            button {
+                width: 20%;
+                height: 35px;
+                font-weight: bold;
+                border-radius: $border_radius;
+            }
+        }
+    }
+}
+
+/* Le composant Footer */
+
+.footer_div {
+    font-family: $Dancing_script;
+    @include center_row_flex_display;
+    width: 100%;
+    height: 150px;
+    font-size: 24px;
+    background-color: black;
+    gap: 5%;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    
+    .text_footer_div {
+        color: $color_text;
+    }
+}
