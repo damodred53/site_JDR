@@ -24,12 +24,22 @@ function App() {
               <Route exact path='/form' Component={Form}></Route>
               <Route exact path='/contact' Component={Contact}></Route>
             </Routes>
-          <Footer />
+           
         </Router>
         
     </React.StrictMode>
+    
   );
 
 }
 
-export default App;
+
+export default App; 
+
+const Footer2 = () => {
+
+  return (
+  <Footer />
+  )
+}
+export  {Footer2};

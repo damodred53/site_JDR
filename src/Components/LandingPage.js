@@ -1,12 +1,12 @@
 import React from "react";
 import Introduction from "./documents/introduction";
 import Image from "../assets/image_icone_loupe.svg"; 
-
+import Footer from "./Footer";
 
 const LandingPage = () => {
 
     return (
-        
+        <div>
         <div className="div_presentation">
 
             <section className="explanation_landingpage">
@@ -59,10 +59,14 @@ const LandingPage = () => {
                     </form>
 
                 </div>
+                
 
             </section>
 
         </div>
+        
+        </div>
+        
     )
 } 
 export default LandingPage;

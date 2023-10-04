@@ -197,7 +197,8 @@ body {
                     gap: 10%;
                     white-space: nowrap;
                     padding-left: 10%;;
-                    padding-right: 10%;                    border-radius: $border_radius;
+                    padding-right: 10%;                   
+                    border-radius: $border_radius;
 
                 }
             }
@@ -268,7 +269,10 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     color: $color_text;
+
+    
 }
+
 
 .projet_contact {
     width: 50%;
@@ -356,6 +360,8 @@ body {
                     font-style: italic;
                     font-weight: bold;
                     padding-top: 2%;
+                    font-family: $Dancing_script;
+                    font-size: 24px;
                 }
                 .textarea::placeholder {
                     padding-top: 5%;
@@ -386,9 +392,12 @@ body {
     font-size: 24px;
     background-color: black;
     gap: 5%;
-    position:absolute;
+    /*position:absolute;
     bottom: 0;
     left: 0;
+    right: 0;
+    position: fixed;*/
+   
     
     .text_footer_div {
         color: $color_text;
