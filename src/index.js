@@ -19,6 +19,7 @@ root.render(
           <Header />
             <Routes>
               <Route path='/' Component={LandingPage}></Route>
+              <Route path='/site_JDR' Component={LandingPage}></Route>
               <Route  path='/about' Component={About}></Route>
               <Route  path='/scene' Component={Scene}></Route>
               <Route  path='/form' Component={Form}></Route>
