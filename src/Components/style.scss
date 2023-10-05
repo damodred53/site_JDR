@@ -105,13 +105,13 @@ body {
 
 /* Le composant Présentation */
 .div_presentation{
-    height: 860px;
+    padding-top: 5%;
     width: 100%;
     display: flex;
     
     flex-direction: column;
     align-items: flex-start;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/girl_warrior.png');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/girl_warrior.webp');
     background-repeat: no-repeat;
     background-size: cover;
     
@@ -126,6 +126,7 @@ body {
         font-weight: bold;
         font-style: italic;
         color: $color_text;
+        
     }
    
     .search_scene {
@@ -231,7 +232,7 @@ body {
     font-style: italic;
     font-weight: bold;
     
-    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/foret_fantasy_1.png');
+    background-image:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/foret_fantasy_1.webp');
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -265,7 +266,7 @@ body {
     display: flex;
     align-items: center;
     height: 900px;
-    background-image: linear-gradient(rgba(0, 0, 0,0.3), rgba(0, 0, 0,0.3)),url('../assets/foret_fantasy_2.png');
+    background-image: linear-gradient(rgba(0, 0, 0,0.3), rgba(0, 0, 0,0.3)),url('../assets/foret_fantasy_2.webp');
     background-repeat: no-repeat;
     background-size: cover;
     color: $color_text;
@@ -382,6 +383,162 @@ body {
     }
 }
 
+/* Le composant card */
+.cards_area {
+    width: 100%;
+    
+    @include center_column_flex_display;
+    
+    
+}
+.div_main_card {
+    color: $color_text;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border-radius: $border_radius;
+    margin-bottom: 1%;
+    border: white 1px solid;
+    height: 250px;
+    margin-top: 1%;
+    
+    .banner_picture_card {
+        height: 20%;
+        width: 100%;
+        .banner_picture {
+            width: 100%;
+            height: 50px;
+            border-top-right-radius: $border_radius;
+            border-top-left-radius: $border_radius;
+            object-fit: cover;
+        }
+    }
+
+    .content_card {
+        border-radius: $border_radius;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        height: 200px;
+        background-color: rgba(0, 0, 0, 0.4);
+        
+        img {
+            height: 100%;
+            width: 25%;
+            object-fit: cover;
+            border-radius: $border_radius;
+            border: white 1px solid;
+            position: relative;
+            left: -2%;
+            top:-12%;
+
+        }
+        
+
+        .title_author_div {
+            @include center_row_flex_display;
+            width: 50%;
+            height: 50%;
+            gap: 10%;
+            font-size: 30px;
+            font-family: $Dancing_script;
+            font-weight: bold;
+            white-space: nowrap;
+            text-decoration: none;
+            color: $color_text;   
+        } 
+    }
+    .link_card {
+        text-decoration: none;
+    }
+}
+
+/* Le composant SceneCard */
+
+.main_card {
+    background-image: linear-gradient(rgba(0, 0, 0,0.3), rgba(0, 0, 0,0.3)),url('../assets/temple_3.png'); 
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: $color_text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scene_card_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: white 1px solid;
+    width: 40%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: $border_radius;
+    
+    .title_scene_card {
+        margin: 2% 0% 2% 0%;
+        border: white 1px solid;
+        padding: 1% 12% 1% 12%;
+        border-radius: $border_radius;
+    }
+
+    .duration_modification_author_card {
+        @include space_row_flex_display;
+        margin-bottom: 3%;
+        width: 100%;
+
+        .duration_card, .date_modification_card, .author_card {
+            display: flex;
+            justify-content: space-between;
+            gap: 5%;
+            white-space: nowrap;
+        }
+    }
+
+    .list_tags {
+        border-radius: $border_radius;
+        background-color: green;
+        height: 60px;
+        width: 90%;
+        margin-bottom: 3%;
+    }
+
+    .image_card {
+        border-radius: $border_radius;
+        width: 90%;
+        height: 180px;
+        object-fit: cover;
+        margin-bottom: 5%;
+    }
+
+    .description_card {
+        width: 90%;
+        font-size: 24px;
+        font-style: italic;
+        font-weight: bold;
+        border-bottom: white 2px solid;
+        padding-bottom: 5%;
+        line-height: 1.5em;
+    }
+
+    .explanation_card {
+        width: 90%;
+        font-size: 24px;
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 5%;
+        margin-top: 5%;
+        line-height: 1.5em;
+       
+    }
+
+    
+}
+
+
+
 /* Le composant Footer */
 
 .footer_div {
@@ -392,11 +549,6 @@ body {
     font-size: 24px;
     background-color: black;
     gap: 5%;
-    /*position:absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    position: fixed;*/
    
     
     .text_footer_div {

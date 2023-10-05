@@ -1,7 +1,10 @@
 import React from "react";
 import Introduction from "./documents/introduction";
 import Image from "../assets/image_icone_loupe.svg"; 
+import Image_test from "../assets/image_1.jpg";
 import Footer from "./Footer";
+import Cards from "../data";
+import Card from "./Card";
 
 const LandingPage = () => {
 
@@ -15,6 +18,7 @@ const LandingPage = () => {
 
             <section className="search_scene">
                 <div className="search_div">
+                    
                     <form className="form_research">
 
                         <div className="title_author_research">
@@ -35,6 +39,7 @@ const LandingPage = () => {
                                 </select>
 
                                 <select>
+                                   
                                     <option selected>Durée</option>
                                     <option value="1">15 minutes ou moins</option>
                                     <option value="2">30 minutes ou moins</option>
@@ -62,6 +67,17 @@ const LandingPage = () => {
                 
 
             </section>
+            <div className="cards_area">
+                {Cards.map(({titre, auteur, imageUrl, key, id}) => (
+                <Card 
+                id= {id}
+                key={key}
+                titre = {titre}
+                auteur = {auteur}
+                
+                 />))}
+            </div>
+            
 
         </div>
         

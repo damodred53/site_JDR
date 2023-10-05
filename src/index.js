@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Footer from './Components/Footer';
 import './index.css';
-
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import LandingPage from './Components/LandingPage';
@@ -11,6 +10,7 @@ import Scene from './Components/Scene';
 import Form from './Components/Form';
 import Header from './Components/Header';
 import Contact from './Components/Contact';
+import SceneCard from './Components/SceneCard';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +24,7 @@ root.render(
               <Route  path='/scene' Component={Scene}></Route>
               <Route  path='/form' Component={Form}></Route>
               <Route  path='/contact' Component={Contact}></Route>
+              <Route path='/scenecard/:id' Component={SceneCard}></Route>
             </Routes>
            
         </Router>
