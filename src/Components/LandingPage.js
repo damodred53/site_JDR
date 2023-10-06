@@ -32,15 +32,15 @@ const LandingPage = () => {
                             <div className="first_row_research">
 
                                 <select>
-                                    <option selected>Difficultés</option>
-                                    <option value="1">facile</option>
+                                    <option selected style={{display: 'none'}}>Difficultés</option>
+                                    <option  value="1">facile</option>
                                     <option value="2">intermédiaire</option>
                                     <option value="3">difficile</option>
                                 </select>
 
                                 <select>
                                    
-                                    <option selected>Durée</option>
+                                    <option selected style={{display: 'none'}}>Durée</option>
                                     <option value="1">15 minutes ou moins</option>
                                     <option value="2">30 minutes ou moins</option>
                                     <option value="3">45 minutes ou moins</option>
