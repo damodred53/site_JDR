@@ -430,6 +430,11 @@ body {
             justify-content: space-between;
             height: 100px; 
 
+            @media (max-width: 350px) {
+                @include center_column_flex_display;
+                padding-top: 10%;
+                padding-bottom: 10%;
+            }
             
             
 
@@ -443,6 +448,11 @@ body {
                 @media (max-width:1300px) {
                     @include center_column_flex_display;
                     white-space: nowrap;
+                }
+                @media (max-width: 350px) {
+                    width: 100%;
+                    margin-top: 5%;
+                    
                 }
             }
             input {
@@ -674,18 +684,32 @@ body {
     margin-top: 2%;
     margin-bottom: 2%;
     border-radius: $border_radius;
+
+    @media(max-width:1300px) {
+        width: 90%;
+    }
     
     .title_scene_card {
         margin: 2% 0% 2% 0%;
         border: white 1px solid;
         padding: 1% 12% 1% 12%;
         border-radius: $border_radius;
+
+        @media (max-width:610px) {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
     }
 
     .duration_modification_author_card {
         @include space_row_flex_display;
         margin-bottom: 3%;
         width: 100%;
+
+        @media (max-width: 1700px) {
+            @include center_column_flex_display;
+            
+        }
 
         .duration_card, .date_modification_card, .author_card {
             display: flex;
