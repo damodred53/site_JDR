@@ -6,7 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import LandingPage from './Components/LandingPage';
 import About from './Components/About';
-import Scene from './Components/Scene';
 import Form from './Components/Form';
 import Header from './Components/Header';
 import Contact from './Components/Contact';
@@ -21,10 +20,9 @@ root.render(
               <Route path='/' Component={LandingPage}></Route>
               <Route path='/*' Component={LandingPage}></Route>
               <Route  path='/about' Component={About}></Route>
-              <Route  path='/scene' Component={Scene}></Route>
               <Route  path='/form' Component={Form}></Route>
               <Route  path='/contact' Component={Contact}></Route>
-              <Route path='/scenecard/:id' Component={SceneCard}></Route>
+              <Route path='/SceneCard/:id' Component={SceneCard}></Route>
             </Routes>
            
         </Router>

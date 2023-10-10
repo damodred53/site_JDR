@@ -1,11 +1,14 @@
 import React from "react";
-import Cards from "../data";
 import Image from "../assets/image_1.jpg";
 import { Link } from "react-router-dom";
-import SceneCard from "./SceneCard";
 
 
-const Card = ({titre, auteur,id }) => {
+
+const Card = ({titre, auteur, imageUrl, key, id}) => {
+
+    
+
+    
 
     return (
         

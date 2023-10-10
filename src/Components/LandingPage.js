@@ -1,12 +1,29 @@
 import React from "react";
 import Introduction from "./documents/introduction";
 import Image from "../assets/image_icone_loupe.svg"; 
-import Image_test from "../assets/image_1.jpg";
-import Footer from "./Footer";
-import Cards from "../data";
 import Card from "./Card";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const LandingPage = () => {
+
+    const [data, setData] = useState([])
+
+    
+        // Utilisez une fonction d'effet pour effectuer la requête fetch
+        fetch(`http://localhost:3000/api/cards`)
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    setData(data);
+                } 
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des données :', error);
+            });
+
+            
+    
 
     return (
         <div>
@@ -68,13 +85,12 @@ const LandingPage = () => {
 
             </section>
             <div className="cards_area">
-                {Cards.map(({titre, auteur, imageUrl, key, id}) => (
+                {data.map(({titre, auteur, imageUrl, key, id}) => (
                 <Card 
                 id= {id}
                 key={key}
                 titre = {titre}
                 auteur = {auteur}
-                
                  />))}
             </div>
             
