@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-const Contact = (e) => {
+const Contact = () => {
 
     const [selectedValue, setSelectedValue] = useState('Difficultés');
     const [selectedValue_2, setSelectedValue_2] = useState('Durée');
@@ -18,7 +18,6 @@ const Contact = (e) => {
 
       const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
         
         setFormData({
           pseudonyme: e.target[0].value,
@@ -29,17 +28,19 @@ const Contact = (e) => {
           descriptionScene: e.target[5].value,
           descriptionGameplay: e.target[6].value
         });
-      }
 
-      const handleChange = (e) => {
-        /*const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value,
-        });*/
+        
+      }
+      console.log(formData);
+      
+
+      const handleSelectChange = (e) => {
+        setSelectedValue(e.target.value);
       };
 
-      console.log(formData);
+      const handleSelectChange_2 = (e) => {
+        setSelectedValue_2(e.target.value);
+      }
   
 
     return (
@@ -53,11 +54,11 @@ const Contact = (e) => {
                     <div className="pseudonyme_and_text_div">
                         <div className="under_div">
                             <label htmlFor="pseudonyme">Pseudonyme</label>
-                            <input type="text" id="pseudonyme" ></input>
+                            <input required type="text" id="pseudonyme" name="pseudonyme"></input>
                         </div>
                         <div className="under_div">
                             <label htmlFor="title">Titre de la scène</label>
-                            <input type="text" id="title" ></input>
+                            <input required type="text" id="title" name="title" ></input>
                         </div>
                     </div>
 
@@ -65,12 +66,13 @@ const Contact = (e) => {
                     <div className="email_hard_duration_div">
                         <div className="email_div">
                             <label htmlFor="email">Email</label>
-                            <input type="email" id="email" ></input>
+                            <input required type="email" id="email" name="email" ></input>
                         </div>
 
                         <div className="selections" >
                             <div>
-                                <select value={selectedValue}>
+                                <select required name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
+                                    <option  disabled hidden>Difficultés</option>
                                     <option value="1">facile</option>
                                     <option value="2">intermédiaire</option>
                                     <option value="3">difficile</option>
@@ -79,7 +81,8 @@ const Contact = (e) => {
 
                             <div>
                                 
-                                <select value={selectedValue_2} >
+                                <select required name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
+                                    <option  disabled hidden >Durée</option>
                                     <option value="1">15 minutes ou moins</option>
                                     <option value="2">30 minutes ou moins</option>
                                     <option value="3">45 minutes ou moins</option>
@@ -93,12 +96,12 @@ const Contact = (e) => {
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
                             <label htmlFor="description-scene">Description de la scène</label>
-                            <textarea  className="textarea" type="text" placeholder="Votre description ici..." id="description-scene" onChange={handleChange}></textarea>
+                            <textarea required  className="textarea" type="text" placeholder="Votre description ici..." id="description-scene" name="description-scene" ></textarea>
                         </div>
 
                         <div className="under_div_scene">
                             <label htmlFor="description-gameplay">Description du gameplay</label>
-                            <textarea className="textarea" type="text" placeholder="Votre explication du gameplay ici..." id="description-gameplay" onChange={handleChange}></textarea>
+                            <textarea required className="textarea" type="text" placeholder="Votre explication du gameplay ici..." id="description-gameplay" name="description-gameplay" ></textarea>
                         </div>
                     </div>
                     <div className="button_contact">
