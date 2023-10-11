@@ -3,6 +3,9 @@ import { useState } from "react";
 
 const Contact = (e) => {
 
+    const [selectedValue, setSelectedValue] = useState('Difficultés');
+    const [selectedValue_2, setSelectedValue_2] = useState('Durée');
+
     const [formData, setFormData] = useState({
         pseudonyme: "",
         title: "",
@@ -49,26 +52,25 @@ const Contact = (e) => {
                 <form className="full_formulaire" onSubmit={handleSubmit}>
                     <div className="pseudonyme_and_text_div">
                         <div className="under_div">
-                            <label for="pseudonyme">Pseudonyme</label>
-                            <input type="text" id="pseudonyme" onChange={handleChange}></input>
+                            <label htmlFor="pseudonyme">Pseudonyme</label>
+                            <input type="text" id="pseudonyme" ></input>
                         </div>
                         <div className="under_div">
-                            <label for="title">Titre de la scène</label>
-                            <input type="text" id="title" onChange={handleChange}></input>
+                            <label htmlFor="title">Titre de la scène</label>
+                            <input type="text" id="title" ></input>
                         </div>
                     </div>
 
 
                     <div className="email_hard_duration_div">
                         <div className="email_div">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" onChange={handleChange}></input>
+                            <label htmlFor="email">Email</label>
+                            <input type="email" id="email" ></input>
                         </div>
 
-                        <div className="selections" onChange={handleChange}>
+                        <div className="selections" >
                             <div>
-                                <select>
-                                    <option selected>Difficultés</option>
+                                <select value={selectedValue}>
                                     <option value="1">facile</option>
                                     <option value="2">intermédiaire</option>
                                     <option value="3">difficile</option>
@@ -77,8 +79,7 @@ const Contact = (e) => {
 
                             <div>
                                 
-                                <select onChange={handleChange}>
-                                    <option selected>Durée</option>
+                                <select value={selectedValue_2} >
                                     <option value="1">15 minutes ou moins</option>
                                     <option value="2">30 minutes ou moins</option>
                                     <option value="3">45 minutes ou moins</option>
@@ -91,12 +92,12 @@ const Contact = (e) => {
 
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
-                            <label for="description-scene">Description de la scène</label>
+                            <label htmlFor="description-scene">Description de la scène</label>
                             <textarea  className="textarea" type="text" placeholder="Votre description ici..." id="description-scene" onChange={handleChange}></textarea>
                         </div>
 
                         <div className="under_div_scene">
-                            <label for="description-gameplay">Description du gameplay</label>
+                            <label htmlFor="description-gameplay">Description du gameplay</label>
                             <textarea className="textarea" type="text" placeholder="Votre explication du gameplay ici..." id="description-gameplay" onChange={handleChange}></textarea>
                         </div>
                     </div>

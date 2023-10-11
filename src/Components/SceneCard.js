@@ -25,7 +25,7 @@ const SceneCard = () => {
                     const foundItem = dataScene.find((item) => item.id === parseInt(id, 10))
             if (foundItem) {
                 setItem(foundItem);
-                console.log(foundItem)
+                
             }
             
                 } 

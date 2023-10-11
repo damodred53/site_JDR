@@ -8,9 +8,11 @@ import { useState } from "react";
 const LandingPage = () => {
 
     const [data, setData] = useState([])
+    const [selectedValue, setSelectedValue] = useState('Difficultés');
+    const [selectedValue_2, setSelectedValue_2] = useState('Durée');
 
-    
-        // Utilisez une fonction d'effet pour effectuer la requête fetch
+    useEffect(() => {
+
         fetch(`http://localhost:3000/api/cards`)
             .then(res => res.json())
             .then(data => {
@@ -21,6 +23,10 @@ const LandingPage = () => {
             .catch(error => {
                 console.error('Erreur lors de la récupération des données :', error);
             });
+
+    }, []);
+        
+        
 
             
     
@@ -39,25 +45,22 @@ const LandingPage = () => {
                     <form className="form_research">
 
                         <div className="title_author_research">
-                            <label for="title">Titre de la scène</label>
+                            <label htmlFor="title">Titre de la scène</label>
                             <input type="text" placeholder="Nom de la scène" id="title"></input>
-                            <label for="name">Auteur</label>
+                            <label htmlFor="name">Auteur</label>
                             <input type="text" placeholder="Nom de l'auteur" id="name"></input>
                         </div>
 
                         <div className="other_attributes_button">
                             <div className="first_row_research">
 
-                                <select>
-                                    <option selected style={{display: 'none'}}>Difficultés</option>
-                                    <option  value="1">facile</option>
+                            <select value={selectedValue}>
+                                    <option value="1">facile</option>
                                     <option value="2">intermédiaire</option>
                                     <option value="3">difficile</option>
                                 </select>
 
-                                <select>
-                                   
-                                    <option selected style={{display: 'none'}}>Durée</option>
+                                <select value={selectedValue_2} >
                                     <option value="1">15 minutes ou moins</option>
                                     <option value="2">30 minutes ou moins</option>
                                     <option value="3">45 minutes ou moins</option>
@@ -85,7 +88,7 @@ const LandingPage = () => {
 
             </section>
             <div className="cards_area">
-                {data.map(({titre, auteur, imageUrl, key, id}) => (
+                {data.map(({titre, auteur, key, id}) => (
                 <Card 
                 id= {id}
                 key={key}

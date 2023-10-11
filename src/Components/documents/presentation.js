@@ -9,11 +9,13 @@ const Presentation = () => {
                 déjà existant, mais aussi de proposer via ces différentes scènes des logiques
                 de gameplay originales. Ces dernières ont vocation à faire varier l'expérience
                 de jeu au sein d'une même séance de JDR. Ainsi, les scènes que vous trouverez
-                sur ce site se composent de deux éléments : <br/><br/>
-                <ol className="list_presentation">
+                sur ce site se composent de deux éléments : </p><br/><br/>
+                <ul className="list_presentation">
                     <li className="under_list_presentation">- Une description de la scène en question. </li>
                     <li className="under_list_presentation">- Quelles logiques de jeu est présente dans cette scène et la rend originales.</li>
-                </ol> <br/><br/>
+                </ul> <br/><br/>
+
+            <p>
                 Si vous souhaitez vous aussi proposer vos idées de scènes, vous pouvez
                 pour l'heure me contacter via le formulaire de contact présent sur ce site.
 
