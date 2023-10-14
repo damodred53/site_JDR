@@ -6,6 +6,9 @@ import Logo_2 from "../assets/Vector_2.svg";
 import Logo_3 from "../assets/Vector_3.svg";
 import { useState } from "react";
 import { useEffect } from "react";
+import Icone from "../assets/edit.png";
+import { Link } from "react-router-dom";
+
 
 const SceneCard = () => {
 
@@ -13,33 +16,41 @@ const SceneCard = () => {
     const [Item, setItem] = useState([]);
     let {id} = useParams();
 
+  
+
     useEffect(() => {
-
-    fetch(`http://localhost:3000/api/scene`)
-
-        .then(res => res.json())
-            .then(data_2 => {
-                if (data_2) {  
-                    setDataScene(data_2); 
-
-                    const foundItem = dataScene.find((item) => item.id === parseInt(id, 10))
-            if (foundItem) {
-                setItem(foundItem);
-                
-            }
-            
-                } 
+        fetch(`http://localhost:3000/api/scene`)
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    setDataScene(data);
+                    const foundItem = data.find(item => item.id === parseInt(id, 10));
+                    if (foundItem) {
+                        setItem(foundItem);
+                    }
+                }
             })
             .catch(error => {
                 console.error('Erreur lors de la récupération des données :', error);
             });
-
-            
-},[{id}] )
+    }, []);
+    
+    console.log(Item);
 
 
     return (
         <div className="main_card">
+
+
+            <div className="instruction_auth_scene_card">
+                <Link to={`/edit/form/${id}`}>
+                    <span className="material_symbols_outlined">
+                        <img src={Icone} alt="icone de modification de la scène"/>   
+                    </span>
+                </Link>
+            </div>
+
+
             <div className="scene_card_main">
                 
                     <h1 className="title_scene_card">{Item.titre}</h1>

@@ -10,6 +10,9 @@ import Form from './Components/Form';
 import Header from './Components/Header';
 import Contact from './Components/Contact';
 import SceneCard from './Components/SceneCard';
+import Error from './Components/Error';
+import EditForm from "./Components/EditForm";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,11 +21,12 @@ root.render(
           <Header />
             <Routes>
               <Route path='/' Component={LandingPage}></Route>
-              <Route path='/*' Component={LandingPage}></Route>
               <Route  path='/about' Component={About}></Route>
               <Route  path='/form' Component={Form}></Route>
               <Route  path='/contact' Component={Contact}></Route>
               <Route path='/SceneCard/:id' Component={SceneCard}></Route>
+              <Route path='/*' Component={Error}></Route>
+              <Route path='/edit/form/:id' Component={EditForm}></Route>
             </Routes>
            
         </Router>

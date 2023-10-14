@@ -567,8 +567,8 @@ body {
 .cards_area {
     width: 100%;
     @include center_column_flex_display;
-    
 }
+
 .div_main_card {
     color: $color_text;
     width: 50%;
@@ -673,6 +673,23 @@ body {
     flex-direction: column;
     align-items: center;
 }
+.instruction_auth_scene_card {
+    position: absolute;
+    right: 200px;
+    top: 200px;
+    border: white 1px solid;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2%;
+
+
+    .material_symbols_outlined{
+        img {
+            height: 50px;
+            width: 50px;
+        }
+    }
+}
+
 
 .scene_card_main {
     display: flex;
@@ -752,11 +769,34 @@ body {
         font-weight: bold;
         margin-bottom: 5%;
         margin-top: 5%;
-        line-height: 1.5em;
-       
+        line-height: 1.5em; 
+    }
+}
+
+/* Le composant Erreur */
+
+.main_error {
+    color: $color_text;
+    @include center_column_flex_display;
+    height: 900px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/girl_warrior.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: $Dancing_script;
+    
+
+    .border_error {
+        border: 1px white solid;
+        padding: 3%;
+        background-color: rgba(0, 0, 0, 0.5);
     }
 
-    
+    .error_404 {
+        font-size:250px;
+    }
+    .text_error {
+        font-size: 3em;
+    }
 }
 
 

@@ -2,13 +2,7 @@ import React from "react";
 import Image from "../assets/image_1.jpg";
 import { Link } from "react-router-dom";
 
-
-
 const Card = ({titre, auteur, imageUrl, key, id}) => {
-
-    
-
-    
 
     return (
         
@@ -26,8 +20,6 @@ const Card = ({titre, auteur, imageUrl, key, id}) => {
                     </div>
                 </Link>
             </div>
-        
-
     )
 }
 

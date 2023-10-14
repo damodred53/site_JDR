@@ -25,9 +25,15 @@ const LandingPage = () => {
             });
 
     }, []);
-        
-        
 
+
+    const handleSelectChange = (e) => {
+        setSelectedValue(e.target.value);
+    }; 
+        
+    const handleSelectChange_2 = (e) => {
+        setSelectedValue_2(e.target.value);
+    };
             
     
 
@@ -54,13 +60,15 @@ const LandingPage = () => {
                         <div className="other_attributes_button">
                             <div className="first_row_research">
 
-                            <select value={selectedValue}>
+                            <select required name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
+                                    <option  disabled hidden>Difficultés</option>
                                     <option value="1">facile</option>
                                     <option value="2">intermédiaire</option>
                                     <option value="3">difficile</option>
                                 </select>
 
-                                <select value={selectedValue_2} >
+                                <select required name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
+                                    <option  disabled hidden >Durée</option>
                                     <option value="1">15 minutes ou moins</option>
                                     <option value="2">30 minutes ou moins</option>
                                     <option value="3">45 minutes ou moins</option>

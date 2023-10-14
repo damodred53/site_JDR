@@ -1,11 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import {useState} from "react";
+import { useParams } from "react-router-dom";
 
-const Contact = () => {
-
+const EditForm =  () => {
+    let {id} = useParams();
     const [selectedValue, setSelectedValue] = useState('Difficultés');
     const [selectedValue_2, setSelectedValue_2] = useState('Durée');
-
     const [formData, setFormData] = useState({
         pseudonyme: "",
         title: "",
@@ -15,10 +15,35 @@ const Contact = () => {
         descriptionScene: "",
         descriptionGameplay: "",
       });
+    const [data_2, setData] = useState([]);
+    const [Item, setItem] = useState([]);
+        
+        const fetchData = async () => {
+            if(Item.length === 0) {
+                await  fetch(`http://localhost:3000/api/scene`)
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    setData(data);
+                    const foundItem = data_2.find(item => item.id === parseInt(id, 10));
+                    if (foundItem) {
+                        setItem(foundItem);
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Erreur lors de la récupération des données :', error);
+            });
+            } else {
+                return
+            }    
+}
+fetchData();
 
+        /*const handleName = () => {
+            setLoadedName(true);
+        }*/
      
-      
-
        const handleSubmit = (e) => {
         e.preventDefault();
         
@@ -40,23 +65,24 @@ const Contact = () => {
         }).then(() => {
             console.log(formData);
         })
-      }
+      };
       
-      
-
       const handleSelectChange = (e) => {
         setSelectedValue(e.target.value);
       };
 
       const handleSelectChange_2 = (e) => {
         setSelectedValue_2(e.target.value);
-      }
-  
+      };
 
+      
+      
     return (
+       
         <div className="main_contact">
+            
             <div className="projet_contact">
-                <h3 >Un projet ? Une idée ? <br/>N'hésitez pas à me contacter pour me <br/>proposer vos idées de scènes</h3>
+                <h3>Vous pouvez modifier à présent cette scène : {Item.titre} </h3>
             </div>
 
             <div className="form_div_main">
@@ -64,11 +90,11 @@ const Contact = () => {
                     <div className="pseudonyme_and_text_div">
                         <div className="under_div">
                             <label htmlFor="pseudonyme">Pseudonyme</label>
-                            <input required type="text" id="pseudonyme" name="pseudonyme" ></input>
+                            <input required type="text" id="pseudonyme" name="pseudonyme" value={Item.auteur} ></input>
                         </div>
                         <div className="under_div">
                             <label htmlFor="title">Titre de la scène</label>
-                            <input required type="text" id="title" name="title"  ></input>
+                            <input required type="text" id="title" name="title" value={Item.titre}  ></input>
                         </div>
                     </div>
 
@@ -76,7 +102,7 @@ const Contact = () => {
                     <div className="email_hard_duration_div">
                         <div className="email_div">
                             <label htmlFor="email">Email</label>
-                            <input required type="email" id="email" name="email"  ></input>
+                            <input required type="email" id="email" name="email" ></input>
                         </div>
 
                         <div className="selections" >
@@ -106,12 +132,12 @@ const Contact = () => {
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
                             <label htmlFor="description-scene">Description de la scène</label>
-                            <textarea required  className="textarea" type="text" placeholder="Votre description ici..." id="description-scene" name="description-scene"  ></textarea>
+                            <textarea required  className="textarea" type="text" value={Item.description} id="description-scene" name="description-scene"  ></textarea>
                         </div>
 
                         <div className="under_div_scene">
                             <label htmlFor="description-gameplay">Description du gameplay</label>
-                            <textarea required className="textarea" type="text" placeholder="Votre explication du gameplay ici..." id="description-gameplay" name="description-gameplay"  ></textarea>
+                            <textarea required className="textarea" type="text" value={Item.explication} id="description-gameplay" name="description-gameplay"  ></textarea>
                         </div>
                     </div>
                     <div className="button_contact">
@@ -121,7 +147,8 @@ const Contact = () => {
             </div>
         </div>
         
-    )
+
+    ) 
 }
 
-export default Contact;
+export default EditForm;
