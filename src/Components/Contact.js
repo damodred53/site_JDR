@@ -1,38 +1,27 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
 
 const Contact = () => {
 
     const [selectedValue, setSelectedValue] = useState('Difficultés');
     const [selectedValue_2, setSelectedValue_2] = useState('Durée');
-
-    const [formData, setFormData] = useState({
+    /*const [formData, setFormData] = useState({
         pseudonyme: "",
         title: "",
         email: "",
         difficulties: "",
         duration: "",
-        descriptionScene: "",
-        descriptionGameplay: "",
-      });
+        description: "",
+        explication: ""
+      });*/
 
-     
+      let formData = {};
       
 
-       const handleSubmit = (e) => {
-        e.preventDefault();
+      const postdata = async () => {
         
-        setFormData({
-            pseudonyme: e.target[0].value,
-            title: e.target[1].value,
-            email: e.target[2].value,
-            difficulties: e.target[3].value,
-            duration: e.target[4].value,
-            descriptionScene: e.target[5].value,
-            descriptionGameplay: e.target[6].value
-          });
-
-        fetch('http://localhost:3000/api/idee_scene', {
+        await fetch('http://localhost:3000/api/idee_scene', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData)
@@ -41,8 +30,23 @@ const Contact = () => {
             console.log(formData);
         })
       }
-      
-      
+
+      const handleSubmit = async (e) =>  {
+        e.preventDefault();
+        
+        formData = {
+            pseudonyme: e.target[0].value,
+            title: e.target[1].value,
+            email: e.target[2].value,
+            difficulties: e.target[3].value,
+            duration: e.target[4].value,
+            description: e.target[5].value,
+            explication: e.target[6].value
+          };
+          
+        console.log(formData);
+        await postdata();
+      }
 
       const handleSelectChange = (e) => {
         setSelectedValue(e.target.value);
@@ -64,7 +68,7 @@ const Contact = () => {
                     <div className="pseudonyme_and_text_div">
                         <div className="under_div">
                             <label htmlFor="pseudonyme">Pseudonyme</label>
-                            <input required type="text" id="pseudonyme" name="pseudonyme" ></input>
+                            <input required type="text" id="pseudonyme" name="pseudonyme"  ></input>
                         </div>
                         <div className="under_div">
                             <label htmlFor="title">Titre de la scène</label>
@@ -89,8 +93,7 @@ const Contact = () => {
                                 </select>
                             </div>
 
-                            <div>
-                                
+                            <div >
                                 <select required name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
                                     <option  disabled hidden >Durée</option>
                                     <option value="1">15 minutes ou moins</option>

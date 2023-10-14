@@ -397,6 +397,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    cursor: default;
+
+    .title_project_contact:hover {
+        color: green;
+    }
+
 
     @media (max-width:900px) {
         width: 100%;
@@ -465,6 +471,7 @@ body {
         .email_hard_duration_div {
             display: flex;
             justify-content: space-between;
+            height: 90px;
 
             @media (max-width: 1650px) {
                 justify-content: flex-start;
@@ -491,6 +498,8 @@ body {
             @media (max-width: 900px) {
                 @include center_column_flex_display;
             }
+
+            
 
 
 
@@ -562,6 +571,23 @@ body {
         }
     }
 }
+
+.selection_edit{
+    @include space_row_flex_display;
+    width: 100%;
+                select {
+                    height: 40px;
+                    font-weight: bold;
+                    border-radius: $border_radius;
+
+                    @media (max-width: 1280px) {
+                        width: 75%;
+                        overflow: auto;
+                        height: 30px;
+                    }
+                }
+}
+
 
 /* Le composant card */
 .cards_area {

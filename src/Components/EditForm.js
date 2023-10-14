@@ -40,21 +40,25 @@ const EditForm =  () => {
 }
 fetchData();
 
-        /*const handleName = () => {
-            setLoadedName(true);
-        }*/
+const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+        ...formData,
+        [name]: value,
+    });
+    console.log(formData);
+};
      
-       const handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         
         setFormData({
             pseudonyme: e.target[0].value,
             title: e.target[1].value,
-            email: e.target[2].value,
-            difficulties: e.target[3].value,
-            duration: e.target[4].value,
-            descriptionScene: e.target[5].value,
-            descriptionGameplay: e.target[6].value
+            difficulties: e.target[2].value,
+            duration: e.target[3].value,
+            description: e.target[4].value,
+            descriptionGameplay: e.target[5].value
           });
 
         fetch('http://localhost:3000/api/idee_scene', {
@@ -82,7 +86,7 @@ fetchData();
         <div className="main_contact">
             
             <div className="projet_contact">
-                <h3>Vous pouvez modifier à présent cette scène : {Item.titre} </h3>
+                <h3>Vous pouvez modifier <br/> à présent cette scène : <br/> <span className="title_project_contact">{Item.titre}</span> </h3>
             </div>
 
             <div className="form_div_main">
@@ -90,22 +94,19 @@ fetchData();
                     <div className="pseudonyme_and_text_div">
                         <div className="under_div">
                             <label htmlFor="pseudonyme">Pseudonyme</label>
-                            <input required type="text" id="pseudonyme" name="pseudonyme" value={Item.auteur} ></input>
+                            <input required type="text" id="pseudonyme" name="pseudonyme" value={Item.auteur} onChange={handleInputChange}></input>
                         </div>
                         <div className="under_div">
                             <label htmlFor="title">Titre de la scène</label>
-                            <input required type="text" id="title" name="title" value={Item.titre}  ></input>
+                            <input required type="text" id="title" name="title" value={Item.titre} onChange={handleInputChange} ></input>
                         </div>
                     </div>
 
 
                     <div className="email_hard_duration_div">
-                        <div className="email_div">
-                            <label htmlFor="email">Email</label>
-                            <input required type="email" id="email" name="email" ></input>
-                        </div>
+                        
 
-                        <div className="selections" >
+                        <div className="selection_edit" onChange={handleInputChange} >
                             <div>
                                 <select required name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
                                     <option  disabled hidden>Difficultés</option>
@@ -115,7 +116,7 @@ fetchData();
                                 </select>
                             </div>
 
-                            <div>
+                            <div onChange={handleInputChange}>
                                 
                                 <select required name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
                                     <option  disabled hidden >Durée</option>
@@ -132,12 +133,12 @@ fetchData();
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
                             <label htmlFor="description-scene">Description de la scène</label>
-                            <textarea required  className="textarea" type="text" value={Item.description} id="description-scene" name="description-scene"  ></textarea>
+                            <textarea required  className="textarea" type="text" value={Item.description} id="description-scene" name="description-scene" onChange={handleInputChange} ></textarea>
                         </div>
 
                         <div className="under_div_scene">
                             <label htmlFor="description-gameplay">Description du gameplay</label>
-                            <textarea required className="textarea" type="text" value={Item.explication} id="description-gameplay" name="description-gameplay"  ></textarea>
+                            <textarea required className="textarea" type="text" value={Item.explication} id="description-gameplay" name="description-gameplay" onChange={handleInputChange} ></textarea>
                         </div>
                     </div>
                     <div className="button_contact">
