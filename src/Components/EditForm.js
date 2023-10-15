@@ -1,23 +1,19 @@
 import React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 const EditForm =  () => {
-    let {id} = useParams();
+
+    
     const [selectedValue, setSelectedValue] = useState('Difficultés');
     const [selectedValue_2, setSelectedValue_2] = useState('Durée');
-    const [formData, setFormData] = useState({
-        pseudonyme: "",
-        title: "",
-        email: "",
-        difficulties: "",
-        duration: "",
-        descriptionScene: "",
-        descriptionGameplay: "",
-      });
     const [data_2, setData] = useState([]);
     const [Item, setItem] = useState([]);
-        
+
+    let {id} = useParams();
+    let modifiedFormData = {};
+    let valuePseudonyme = "";
+    
         const fetchData = async () => {
             if(Item.length === 0) {
                 await  fetch(`http://localhost:3000/api/scene`)
@@ -40,35 +36,29 @@ const EditForm =  () => {
 }
 fetchData();
 
-const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-        ...formData,
-        [name]: value,
-    });
-    console.log(formData);
-};
+const postData = async () => {
+        
+    await fetch(`http://localhost:3000/api/idee_scene/${id}`, {
+        method: 'PUT',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(modifiedFormData)
+    
+    })
+  }
      
     const handleSubmit = (e) => {
         e.preventDefault();
         
-        setFormData({
+        modifiedFormData = {
             pseudonyme: e.target[0].value,
             title: e.target[1].value,
             difficulties: e.target[2].value,
             duration: e.target[3].value,
             description: e.target[4].value,
-            descriptionGameplay: e.target[5].value
-          });
+            descriptionGameplay: e.target[5].value,
+          };
 
-        fetch('http://localhost:3000/api/idee_scene', {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(formData)
-        
-        }).then(() => {
-            console.log(formData);
-        })
+        postData();
       };
       
       const handleSelectChange = (e) => {
@@ -79,8 +69,17 @@ const handleInputChange = (e) => {
         setSelectedValue_2(e.target.value);
       };
 
+      const handleInputChange = () => {
+
+      };
+
       
-      
+
+
+
+
+
+
     return (
        
         <div className="main_contact">
@@ -94,11 +93,11 @@ const handleInputChange = (e) => {
                     <div className="pseudonyme_and_text_div">
                         <div className="under_div">
                             <label htmlFor="pseudonyme">Pseudonyme</label>
-                            <input required type="text" id="pseudonyme" name="pseudonyme" value={Item.auteur} onChange={handleInputChange}></input>
+                            <input required type="text" id="pseudonyme" name="pseudonyme" value={Item.titre} onChange={handleInputChange}></input>
                         </div>
                         <div className="under_div">
                             <label htmlFor="title">Titre de la scène</label>
-                            <input required type="text" id="title" name="title" value={Item.titre} onChange={handleInputChange} ></input>
+                            <input required type="text" id="title" name="title" value={Item.titre}  onChange={handleInputChange} ></input>
                         </div>
                     </div>
 
@@ -125,6 +124,7 @@ const handleInputChange = (e) => {
                                     <option value="3">45 minutes ou moins</option>
                                     <option value="4">60 minutes ou moins</option>
                                 </select>
+
                             </div>
                         </div>
                     </div>
@@ -141,9 +141,11 @@ const handleInputChange = (e) => {
                             <textarea required className="textarea" type="text" value={Item.explication} id="description-gameplay" name="description-gameplay" onChange={handleInputChange} ></textarea>
                         </div>
                     </div>
+
                     <div className="button_contact">
                         <button value="submit" type="submit">Envoyer</button>
                     </div>
+
                 </form>
             </div>
         </div>

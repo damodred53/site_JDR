@@ -14,6 +14,7 @@ import Error from './Components/Error';
 import EditForm from "./Components/EditForm";
 
 
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -27,8 +28,8 @@ root.render(
               <Route path='/SceneCard/:id' Component={SceneCard}></Route>
               <Route path='/*' Component={Error}></Route>
               <Route path='/edit/form/:id' Component={EditForm}></Route>
+              
             </Routes>
-           
         </Router>
         
     </React.StrictMode>

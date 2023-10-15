@@ -19,15 +19,13 @@ const Contact = () => {
       let formData = {};
       
 
-      const postdata = async () => {
+      const postData = async () => {
         
         await fetch('http://localhost:3000/api/idee_scene', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData)
         
-        }).then(() => {
-            console.log(formData);
         })
       }
 
@@ -44,8 +42,7 @@ const Contact = () => {
             explication: e.target[6].value
           };
           
-        console.log(formData);
-        await postdata();
+        await postData();
       }
 
       const handleSelectChange = (e) => {
@@ -68,7 +65,7 @@ const Contact = () => {
                     <div className="pseudonyme_and_text_div">
                         <div className="under_div">
                             <label htmlFor="pseudonyme">Pseudonyme</label>
-                            <input required type="text" id="pseudonyme" name="pseudonyme"  ></input>
+                            <input required type="text" id="pseudonyme" name="pseudonyme" ></input>
                         </div>
                         <div className="under_div">
                             <label htmlFor="title">Titre de la scène</label>
