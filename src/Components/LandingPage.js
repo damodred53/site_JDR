@@ -4,12 +4,34 @@ import Image from "../assets/image_icone_loupe.svg";
 import Card from "./Card";
 import { useEffect } from "react";
 import { useState } from "react";
+import ReactPaginate from "react-paginate";
 
 const LandingPage = () => {
 
     const [data, setData] = useState([])
     const [selectedValue, setSelectedValue] = useState('Difficultés');
     const [selectedValue_2, setSelectedValue_2] = useState('Durée');
+
+    /*const [displayCards, setDisplayCards] => useState()*/
+    const [pageNumber, setPageNumber] = useState(0);
+    const cardsPerPage = 5;
+    const pagesVisited = pageNumber * cardsPerPage;
+
+    const displayCards = data.slice(pagesVisited, pagesVisited + cardsPerPage).map(({titre, auteur, key, id}) => {
+       return(
+        <Card
+        id= {id}
+        key={key}
+        titre = {titre}
+        auteur = {auteur}/>
+       ) 
+    });
+
+    const pageCount = Math.ceil(data.length / cardsPerPage);
+    const changePage = ({selected}) => {
+        setPageNumber(selected)
+    }
+
 
     useEffect(() => {
 
@@ -35,7 +57,16 @@ const LandingPage = () => {
         setSelectedValue_2(e.target.value);
     };
             
-    
+    /*
+    <div className="cards_area">
+                {data.map(({titre, auteur, key, id}) => (
+                <Card 
+                id= {id}
+                key={key}
+                titre = {titre}
+                auteur = {auteur}
+                 />))}
+            </div>*/ 
 
     return (
         <div>
@@ -96,13 +127,13 @@ const LandingPage = () => {
 
             </section>
             <div className="cards_area">
-                {data.map(({titre, auteur, key, id}) => (
-                <Card 
-                id= {id}
-                key={key}
-                titre = {titre}
-                auteur = {auteur}
-                 />))}
+                {displayCards}
+                <ReactPaginate
+                    previousLabel={"Previous"}
+                    nextLabel={"Next"}
+                    pageCount={pageCount}
+                    onPageChange={changePage}
+                />
             </div>
             
 
@@ -111,5 +142,5 @@ const LandingPage = () => {
         </div>
         
     )
-} 
+};
 export default LandingPage;

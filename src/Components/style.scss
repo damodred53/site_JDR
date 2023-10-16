@@ -180,16 +180,13 @@ body {
 
 .div_presentation{
     padding-top: 5%;
-   
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/girl_warrior.webp');
-    background-repeat: no-repeat;
     background-size: cover;
     
-    
-
     .explanation_landingpage {
         @include center_column_flex_display;
         display: flex;
