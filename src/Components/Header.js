@@ -8,52 +8,60 @@ const Header = () => {
     const [accueilActive, setAccueilActive] = useState(true);
     const [aboutActive, setAboutActive] = useState(false);
     const [contactActive, setContactActive] = useState(false);
+    const [newSceneActive, setNewSceneActive] = useState(false);
     const [opening, setOpening] = useState(false)
 
     const handleClickAcceuil = () => {
         setAccueilActive(true);
         setAboutActive(false);
         setContactActive(false);
+        /*setNewSceneActive(false);*/
     }
     const handleClickAbout = () => {
         setAccueilActive(false);
         setAboutActive(true);
         setContactActive(false);
+        /*setNewSceneActive(false);*/
     }
-
     const  handleClickContact = () => {
         setAccueilActive(false);
         setAboutActive(false);
         setContactActive(true);
+        /*setNewSceneActive(false);*/
     }
 
+    /*const handleClickNewScene = () => {
+        setAccueilActive(false);
+        setAboutActive(false);
+        setContactActive(false);
+        setNewSceneActive(true);
+    }*/
     const setOpen = () => {
         setOpening(!opening);
         
     }
-
-    /*const closeMenu = () => {
-
-    }*/
-    
 
     return (
         <div className="header">
             <div className="welcome_and_navbar">
                 <h1>Bienvenue sur le Scenatorium</h1>
                 <nav className="navbar_Header">
+
                     <ul className="navbar_Header_list">
                         <li><Link to="/" className={`${accueilActive ? "underline" : ""}`} onClick={handleClickAcceuil}>Accueil</Link></li>
                         <li><Link to="/about" className={`${aboutActive ? "underline" : ""}`} onClick={handleClickAbout}>A propos</Link></li>
                         <li><Link to="/contact" className={`${contactActive ? "underline" : ""}`} onClick={handleClickContact}>Contact</Link></li>
+                        
                     </ul>
+
                     <img alt="menu burger" className="burger_header" src={Burger} onClick={setOpen}/>
+                    
                     <div className={`${opening ? "opened_navbar" : "invisible_navbar"}`}>
                        
                             <Link className="menu_hidden_navbar" to="/"  onClick={setOpen}>Accueil</Link>
                             <Link className="menu_hidden_navbar" to="/about"  onClick={setOpen}>A propos</Link>
                             <Link className="menu_hidden_navbar" to="/contact"  onClick={setOpen}>Contact</Link>
-                        
+                            
                     </div>
                 </nav>
             </div>

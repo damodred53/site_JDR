@@ -1,26 +1,9 @@
 import React from "react";
 import Image from "../assets/image_1.jpg";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+
 
 const Card = ({titre, auteur, imageUrl, key, id}) => {
-
-    
-
-    /*useEffect(() => {
-
-        fetch(`http://localhost:3000/api/cards`)
-            .then(res => res.json())
-            .then(data => {
-                if (data) {
-                    setData(data);
-                } 
-            })
-            .catch(error => {
-                console.error('Erreur lors de la récupération des données :', error);
-            });
-
-    }, []);*/
 
     return (
         
@@ -38,6 +21,7 @@ const Card = ({titre, auteur, imageUrl, key, id}) => {
                         </div>
                     </div>
                 </Link>
+                
             </div>
     )
 }

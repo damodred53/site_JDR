@@ -1,6 +1,6 @@
 import React from "react";
 import './style.scss';
-import Presentation from "./documents/presentation";
+import Presentation from "./text_in_components/presentation";
 
 const About = () => {
    

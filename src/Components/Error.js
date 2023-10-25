@@ -2,8 +2,6 @@ import React from "react";
 
 const Error  = () => {
 
-
-
     return (
         <div className="main_error">
             <div className="border_error">

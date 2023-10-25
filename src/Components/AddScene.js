@@ -1,9 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-
 
 const Contact = () => {
 
@@ -16,13 +13,13 @@ const Contact = () => {
       /* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
       const postData = async () => {
         
-        await fetch('http://localhost:3000/api/send_email', {
+        await fetch('http://localhost:3000/api/idee_scene', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData)
         })
-        .then(toast.success("mail envoyé à l'administrateur avec succès"))
-        .then(navigate('/'));
+
+        navigate('/');
       }
 
 
@@ -58,12 +55,13 @@ const Contact = () => {
 
     return (
         <div className="main_contact">
-            <div className="projet_contact">
-                <h3 >Un projet ? Une idée ? Ou simplement une question ?<br/>N'hésitez pas à me contacter pour me <br/>proposer vos idées de scènes</h3>
-            </div>
-
-            <div className="form_div_main">
-                <form className="full_formulaire" onSubmit={handleSubmit} method="POST" action="/send_email">
+            <div className="form_div_main_newscene">
+                <form className="full_formulaire" onSubmit={handleSubmit} method="POST" action="localhost:3000/api/idee_scene">
+                    
+                <div className="suggestion_newscene">
+                    <h1>Vous pouvez suggérer une nouvelle scène en remplissant ce formulaire. l'administrateur examinera alors votre proposition de scène </h1>
+                </div>
+                       
                     <div className="pseudonyme_and_text_div">
                         <div className="under_div">
                             <label htmlFor="pseudonyme">Pseudonyme</label>
