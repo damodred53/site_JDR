@@ -24,13 +24,13 @@ root.render(
           
             <Routes>
               <Route path='/' Component={LandingPage}></Route>
-              <Route  path='/about' Component={About}></Route>
-              <Route  path='/contact' Component={Contact}></Route>
+              <Route path='/about' Component={About}></Route>
+              <Route path='/contact' Component={Contact}></Route>
               <Route path='/SceneCard/:id' Component={SceneCard}></Route>
               <Route path='/*' Component={Error}></Route>
               <Route path='/edit/form/:id' Component={EditForm}></Route>
               <Route path='/newscene' Component={AddScene}></Route>
-              <Route path='/anthentification' Component={Admin}></Route>
+              <Route path='/authentification' Component={Admin}></Route>
             </Routes>
         </Router>
         <ToastContainer 

@@ -15,12 +15,13 @@ const LandingPage = () => {
     const [selectedValue, setSelectedValue] = useState('Difficultés');
     const [selectedValue_2, setSelectedValue_2] = useState('Durée');
     const [pageNumber, setPageNumber] = useState(0);
+    const [hasToken, setHasToken] = useState(false);
 
     const navigate = useNavigate();
 
     
-
     
+    console.log(hasToken)
 
     /* intégration du système de pagination via la librairie ReactPaginate */
     const cardsPerPage = 5;
@@ -43,12 +44,18 @@ const LandingPage = () => {
     le useState data afin qu'elle soit affichée dynamiquement sur la landing page */
     useEffect(() => {
 
+        const getToken = localStorage.getItem('tokenUser');
+    if (getToken !== null) {
+        setHasToken(true);
+        
+    }
+
         fetch(`http://localhost:3000/api/scene`)
             .then(res => res.json())
             .then(data => {
                 if (data) {
                     setData(data);
-                    console.log(data);
+                    
                 } 
             })
             .catch(error => {
@@ -69,6 +76,10 @@ const LandingPage = () => {
 
     const handleClickAddNewScene = () => {
         navigate('/newscene');
+    }
+
+    const handleClickAuthentification = () => {
+        navigate('/authentification');
     }
 
    
@@ -128,8 +139,11 @@ const LandingPage = () => {
 
                         
                     </form>
+                    <div className="create_new_scene1 create_new_scene">
+                    <button className={`${hasToken ? '' : 'toggleDisplay'} button_create_new_scene`} onClick={handleClickAddNewScene}>Créer une nouvelle scène</button>
+                    </div>
                     <div className="create_new_scene">
-                            <button className="button_create_new_scene" onClick={handleClickAddNewScene}>Créer une nouvelle scène</button>
+                            <button className="button_create_new_scene" onClick={handleClickAuthentification}>Accès admin</button>
                     </div>
 
                 </div>

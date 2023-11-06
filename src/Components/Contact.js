@@ -22,7 +22,7 @@ const Contact = () => {
             body: JSON.stringify(formData)
         })
         .then(toast.success("mail envoyé à l'administrateur avec succès"))
-        .then(navigate('/'));
+        
       }
 
 

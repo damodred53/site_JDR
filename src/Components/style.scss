@@ -235,6 +235,7 @@ body {
             @include center_column_flex_display;
             padding-top: 2%;
             padding-bottom: 2%;
+            /*display: none;*/
 
         .button_create_new_scene {
             background-color: rgba(0, 0, 0, 0.5);
@@ -247,12 +248,23 @@ body {
             cursor: pointer;
             white-space: nowrap;
             padding: 1%;
-            
         }
         .button_create_new_scene:hover {
             color: green;
             border: green 1px solid;
         }
+
+        .create_new_scene1 {
+            width: 100%;
+            @include center_column_flex_display;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            
+        }
+        .toggleDisplay{
+            display: none;
+        }
+
         }
         .title_author_research {
             
@@ -1116,17 +1128,29 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/girl_warrior.webp');
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media (max-width: 560px) {
+        flex-direction: column;
+       
+    }
+
     
     .vertical_bar {
         background-color: white;
         width: 1px;
         height: 780px;
+
+        @media (max-width: 560px) {
+            display: none;
+        }
     }
     
     .main_connection, .main_signing_up {
         width: 50%;
         height: 850px;
         @include center_column_flex_display;
+
+        
         
     .title_connection {
         font-family: $Dancing_script;
@@ -1141,10 +1165,18 @@ body {
         color: $color_text;
         margin-top: 5%;
         height: 45px;
-        width: 15%;
+        font-family: $Dancing_script;
+        width: fit-content;
        background-color: rgba(0, 0, 0, 0.6);
        border: white 1px solid;
-       font-size: 19px;
+       font-size: 24px;
+       cursor: pointer;
+       font-weight: bold;
+    }
+    
+    .button_authentification:hover {
+        color: green;
+        border: green 1px solid;
     }
 
         .form_authentification {
@@ -1159,6 +1191,10 @@ body {
             border: white 1px solid;
             gap: 15%;
 
+            @media (max-width: 560px) {
+                width: 100%;
+            }
+
             .under_div {
                 @include center_row_flex_display;
                 gap: 15%;
@@ -1168,6 +1204,12 @@ body {
                 font-family: $Dancing_script;
                 text-transform:capitalize;
                 width: 80%;
+
+                @media (max-width: 930px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    font-size: 18px;
+                }
 
                 label {
                     width: 50%;
