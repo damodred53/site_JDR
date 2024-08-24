@@ -38,11 +38,11 @@ const Admin = () => {
     
         if(response.ok) {
            const responseData =await response.json()
-           console.log(responseData.token);
+
             
            if (responseData.token) {
             let token = responseData.token
-            console.log(token)
+
             localStorage.setItem("tokenUser", token);
            }
            navigate('/');

@@ -16,6 +16,7 @@ const SceneCard = () => {
 
     const [Item, setItem] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [hasToken, setHasToken] = useState(false);
 
     /* récupération de la valeur de ID contenu dans l'URL via le hook useParams */
     let {id} = useParams();
@@ -23,6 +24,12 @@ const SceneCard = () => {
     /* Fonction permettant d'aller chercher en base de données les informations sur la scène 
     les informations sont ensuite afficher dynamiquement à l'écran dans le formulaire*/
     useEffect(() => {
+
+        const getToken =localStorage.getItem('tokenUser');
+        if (getToken !== null) {
+            setHasToken(true);
+        }
+
        fetch(`http://localhost:3000/api/idee_scene/${id}`)
        .then(res => res.json())
             .then(data => {
@@ -66,8 +73,9 @@ const SceneCard = () => {
                     </div>
             </div> 
 
-                    <div className="instruction_auth_scene_card">
-
+                    
+                        {hasToken ? 
+                        <div className="instruction_auth_scene_card">
                         <Link to={`/edit/form/${id}`}>
                             <span className="material_symbols_outlined">
                                 <img src={Icone} alt="icone de modification de la scène"/>   
@@ -75,12 +83,16 @@ const SceneCard = () => {
                         </Link>
 
                         
-                            <span className='material_symbols_outlined'>
+                        <span className='material_symbols_outlined'>
                                 <img src={Bin} alt="icone de suppression de la scène" onClick={handleDelete}/>   
-                            </span> 
+                        </span> 
+                        </div>
+                        : 
+                        null}
+                        
                             
                         
-                    </div>
+                    
 
 
                     <div className="scene_card_main">

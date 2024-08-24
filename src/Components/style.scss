@@ -230,18 +230,24 @@ body {
             }
         }
 
+        .admin_space {
+            @include space_row_flex_display;
+        }
+
+
+
         .create_new_scene{
             width: 100%;
             @include center_column_flex_display;
             padding-top: 2%;
             padding-bottom: 2%;
-            /*display: none;*/
+           
 
         .button_create_new_scene {
             background-color: rgba(0, 0, 0, 0.5);
             color: white;
             font-style: italic;
-            width: 15%;
+            width: fit-content;
             height: auto;
             font-size: 24px;
             border: white 1px solid;
@@ -252,6 +258,12 @@ body {
         .button_create_new_scene:hover {
             color: green;
             border: green 1px solid;
+        }
+
+        
+        .deconnexion:hover {
+            color: red;
+            border: red 1px solid;
         }
 
         .create_new_scene1 {
@@ -696,7 +708,7 @@ body {
         justify-content: space-around;
         align-items: flex-start;
         height: 200px;
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: rgba(0, 0, 0, 0.5);
 
         
         
