@@ -1,21 +1,42 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { verifyForm } from "../Services/Services";
 
 
 const Contact = () => {
 
+    /*const [errorName, setErrorName] = useState(false);
+    const [errorMail, setErrorMail] = useState(false);
+    const [errorDescription, setErrorDescription] = useState(false);
+    const [errorScene, setErrorScene] = useState(false);*/
+    const [error, setError] =  useState({}); 
+    let IsFormValid = false;
     const [selectedValue, setSelectedValue] = useState('Difficultés');
     const [selectedValue_2, setSelectedValue_2] = useState('Durée');
-    
-      let formData = {};
-        const navigate =useNavigate();
+    const refName = useRef();
+    const refEmail = useRef();
+    const refScene = useRef();
+    const refDescription = useRef();
+    const arrayRef = [refName, refEmail, refScene, refDescription];
 
-      /* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
-      const postData = async () => {
+    let formData = {};
         
+    
+      /* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
+    const postData = async () => {
+
+        /*if (errorDescription || errorMail || errorName || errorScene) {
+            console.log(errorName);
+            console.log(errorMail);
+            console.log(errorDescription);
+            console.log(errorScene);
+    
+        return*/
+    
+
         await fetch('http://localhost:3000/api/send_email', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
@@ -23,26 +44,54 @@ const Contact = () => {
         })
         .then(toast.success("mail envoyé à l'administrateur avec succès"))
         
-      }
+    }
 
 
       /* fonction permettant de récupérer les informations contenus dans le formulaire de contact et de stocker les 
       informations dans formData avant son envoi en base de donnés */
 
-      const handleSubmit = async (e) =>  {
-        e.preventDefault();
-        formData = {
-            pseudonyme: e.target[0].value,
-            title: e.target[1].value,
-            email: e.target[2].value,
-            difficulties: e.target[3].value,
-            duration: e.target[4].value,
-            description: e.target[5].value,
-            explication: e.target[6].value
-          };
-          
-        await postData();
-      }
+    const handleSubmit = async (e) =>  {
+            e.preventDefault();
+
+            /*setErrorName(false);
+            setErrorMail(false);
+            setErrorDescription(false);
+            setErrorScene(false);*/
+
+            try {
+                formData = {
+                    pseudonyme: e.target[0].value,
+                    title: e.target[1].value,
+                    email: e.target[2].value,
+                    difficulties: e.target[3].value,
+                    duration: e.target[4].value,
+                    description: e.target[5].value,
+                    explication: e.target[6].value
+                };
+            } catch (error) {
+                console.log("Remplissage incorrect du formulaire");
+                throw error;
+            }
+            
+         
+          /* faire ici une fonction de vérification des données */
+        let IsFormValid = verifyForm(formData);
+
+        console.log(IsFormValid);
+
+        if (Object.keys(IsFormValid).length > 0) {
+            console.log("Des erreurs ont été détectées dans le formulaire.");
+            setError(IsFormValid)
+        }
+         else {
+            setError(IsFormValid)
+            console.log(error)
+            IsFormValid = {}
+            await postData();
+        }
+          /*return IsFormValid*/
+    }
+
 
       /* Ces deux constantes permettent de modifier le rendu visuel des valeurs dans les 
       deux menus déroulants du formulaire */
@@ -64,27 +113,49 @@ const Contact = () => {
 
             <div className="form_div_main">
                 <form className="full_formulaire" onSubmit={handleSubmit} method="POST" action="/send_email">
-                    <div className="pseudonyme_and_text_div">
-                        <div className="under_div">
-                            <label htmlFor="pseudonyme">Pseudonyme</label>
-                            <input required type="text" id="pseudonyme" name="pseudonyme" ></input>
+                    <div className="name_title">
+                        <div className="name_title_name ">
+                            <div className="name_title_name_text_div">
+                                <label htmlFor="pseudonyme">Pseudonyme</label>
+                                <input type="text" id="pseudonyme" name="pseudonyme" ></input>
+                            </div>
+                              
+                                <div >
+                                {error.name === true ?
+                                    <p className="name_title_name_error" ref={refName}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
+                                :
+                                ""}
+                                </div>
+                                
+                            
                         </div>
-                        <div className="under_div">
-                            <label htmlFor="title">Titre de la scène</label>
-                            <input required type="text" id="title" name="title"  ></input>
+                        
+                        <div className="name_title_title ">
+                            <div className="name_title_name_text_div">
+                                <label htmlFor="title">Titre de la scène</label>
+                                <input  type="text" id="title" name="title"  ></input>
+                            </div>
                         </div>
                     </div>
 
 
                     <div className="email_hard_duration_div">
-                        <div className="email_div">
-                            <label htmlFor="email">Email</label>
-                            <input required type="email" id="email" name="email"  ></input>
+                        <div >
+                            <div className="email_div" >
+                                <label htmlFor="email">Email</label>
+                                <input  type="email" id="email" name="email"  ></input>
+                            </div>
+                            {error.mail &&
+                                <div>
+                                    <p className="name_title_title_error" ref={refEmail}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
+                                </div>
+                            }
                         </div>
+                        
 
                         <div className="selections" >
                             <div>
-                                <select required name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
+                                <select  name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
                                     <option  disabled hidden>Difficultés</option>
                                     <option value="facile">facile</option>
                                     <option value="intermédiaire">intermédiaire</option>
@@ -92,8 +163,8 @@ const Contact = () => {
                                 </select>
                             </div>
 
-                            <div >
-                                <select required name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
+                            <div className="selections_duration" >
+                                <select  name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
                                     <option  disabled hidden >Durée</option>
                                     <option value="15">15 minutes ou moins</option>
                                     <option value="30">30 minutes ou moins</option>
@@ -107,18 +178,39 @@ const Contact = () => {
 
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
-                            <label htmlFor="description-scene">Description de la scène</label>
-                            <textarea required  className="textarea" type="text" placeholder="Votre description ici..." id="description-scene" name="description-scene"  ></textarea>
+                            <div >
+                                <label htmlFor="under_div_scene_description-scene">Description de la scène <span className="under_div_scene_description-scene_span">( Vous pouvez ici poser votre question )</span></label>
+                                <textarea className="textarea" type="text" placeholder="Votre description ici..." id="description-scene" name="description-scene"  ></textarea>
+                            </div>
+                            {error.description &&
+                                <div>
+                                    <p className="name_title_title_error_big" ref={refDescription}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
+                                </div>
+                            }
                         </div>
-
+                        
                         <div className="under_div_scene">
-                            <label htmlFor="description-gameplay">Description du gameplay</label>
-                            <textarea required className="textarea" type="text" placeholder="Votre explication du gameplay ici..." id="description-gameplay" name="description-gameplay"  ></textarea>
+                            <div>
+                                <label htmlFor="description-gameplay">Description du gameplay</label>
+                                <textarea className="textarea" type="text" placeholder="Votre explication du gameplay ici..." id="description-gameplay" name="description-gameplay"  ></textarea>
+                            </div>
+                            
+                                
+                                    {error.explication &&
+                                    <div>
+                                        <p className="name_title_title_error_big" ref={refScene}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
+                                    </div>
+                                    }
+                                
+                            
+                            
+                                <div className="button_contact">
+                                    <button value="submit" type="submit">Envoyer</button>
+                                </div>
+                            
                         </div>
                     </div>
-                    <div className="button_contact">
-                        <button value="submit" type="submit">Envoyer</button>
-                    </div>
+
                 </form>
             </div>
         </div>

@@ -14,6 +14,7 @@ import AddScene from './Components/AddScene';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Admin from "./Components/Admin";
+import "./Components/style.scss";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

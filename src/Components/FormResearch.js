@@ -1,13 +1,24 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Image from "../assets/image_icone_loupe.svg"; 
+import Cross from "../assets/cross.svg";
+import { verifyResearch } from "../Services/Services.jsx";
 
 const FormResearch = ({ research, updateResearch }) => {
 
-    const [selectedValue, setSelectedValue] = useState('Difficultés');
-    const [selectedValue_2, setSelectedValue_2] = useState('Durée');
+    const [selectedValue, setSelectedValue] = useState('');
+    const [selectedValue_2, setSelectedValue_2] = useState('');
     const [titleResearch, setTitleResearch] = useState('');
     const [filteredElement, setFilteredElement] = useState([]);
+    const [isFocused, setIsFocused] = useState(false);
+
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
 
 
     useEffect(() => {
@@ -17,7 +28,7 @@ const FormResearch = ({ research, updateResearch }) => {
 
     let formData = {};
     const researchData = async () => {
-
+        console.log(formData)
         await fetch('http://localhost:3000/api/research', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
@@ -41,18 +52,28 @@ const FormResearch = ({ research, updateResearch }) => {
     };
 
     const handleChangeTitle = (e) => {
-        const title = e.target.value;
-        setTitleResearch(title);
+        setTitleResearch(e.target.value);
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
         formData.name = titleResearch;
         formData.difficulty = selectedValue;
         formData.duration = selectedValue_2;
+        
+        const isResearchValid = verifyResearch(formData);
+        console.log(isResearchValid)
         await researchData();
         updateResearch(filteredElement);
+    }
+
+    const handleErase = () => {
+        if (titleResearch !== '') {
+            setTitleResearch('');
+        } else {
+            console.log("je suis vide déjà")
+        }
+       
     }
 
     return (
@@ -61,14 +82,30 @@ const FormResearch = ({ research, updateResearch }) => {
 
                         <div className="title_author_research">
                             <label htmlFor="title">Titre de la scène</label>
-                            <input type="text" placeholder="Nom de la scène" id="title" onChange={handleChangeTitle}></input>
-                            
+                            <div className="div_input_cross">
+                            <input
+                                type="text"
+                                id="title"
+                                onChange={handleChangeTitle}
+                                value={titleResearch || ''}
+                                onFocus={handleFocus}  // Gère le focus
+                                onBlur={handleBlur}    // Gère le blur (perte de focus)
+                                style={{
+                                    boxShadow: isFocused
+                                        ? 'rgba(255, 255, 255, 0.25) 0px 54px 55px, rgba(255, 255, 255, 0.12) 0px -12px 30px, rgba(255, 255, 255, 0.12) 0px 4px 6px, rgba(255, 255, 255, 0.17) 0px 12px 13px, rgba(255, 255, 255, 0.09) 0px -3px 5px'
+                                        : 'none',
+                                }}
+                            />
+                                <span className="div_input_cross_erase"> 
+                                    {titleResearch !== '' ? <img className="div_input_cross_erase_icon" onClick={handleErase} src={Cross} alt="icone de croix pour vider la recherche"/> : "" }
+                                </span>
+                            </div>
                         </div>
 
                         <div className="other_attributes_button">
                             <div className="first_row_research">
 
-                            <select required name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
+                                <select required name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
                                     <option  disabled hidden>Difficultés</option>
                                     <option value="facile">facile</option>
                                     <option value="intermédiaire">intermédiaire</option>
@@ -83,12 +120,10 @@ const FormResearch = ({ research, updateResearch }) => {
                                     <option value="60">60 minutes ou moins</option>
                                 </select>
 
-                                
-
                             </div>
 
                             <div className="button_research">
-                                <button >
+                                <button type="submit">
                                     Lancer la recherche <img alt="icone de loupe" src={Image} />
                                 </button> 
                             </div>  

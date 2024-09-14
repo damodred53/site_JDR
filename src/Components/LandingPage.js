@@ -7,8 +7,6 @@ import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
 
-
-
 const LandingPage = () => {
 
     const [data, setData] = useState([])
@@ -27,7 +25,7 @@ const LandingPage = () => {
        return(
         <Card
         id= {_id}
-        key={key}
+        key={_id}
         titre = {title}
         auteur = {pseudonyme}/>
        ) 
@@ -46,7 +44,7 @@ const LandingPage = () => {
         setHasToken(true);
         
     }
-    console.log(research)
+  
         fetch(`http://localhost:3000/api/scene`)
             .then(res => res.json())
             .then(data => {
@@ -60,8 +58,6 @@ const LandingPage = () => {
             });
 
     }, [research]);
-
-
 
 
     const handleClickAddNewScene = () => {
@@ -113,17 +109,19 @@ const LandingPage = () => {
             </section>
             <div className="cards_area">
 
-        {research.length > 0 ? 
-        
-                research.map((elem) => (
+        {research && research.length > 0 ? 
+            
+                research.map((elem, key) => (
                     <Card
                     id= {elem._id}
-                    key={elem.key}
+                    key={elem._id}
                     titre = {elem.title}
-                    auteur = {elem.pseudonyme}/>
+                    auteur = {elem.pseudonyme}
+                    />
                 ))
-                         : (
-                            <>
+                :
+                (
+                <>
                 {displayCards}
                 
                     <ReactPaginate
