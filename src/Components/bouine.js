@@ -186,3 +186,13 @@ const Contact = () => {
 }
 
 export default Contact;
+
+
+
+/*
+
+ const handleGoUp = () => {
+        window.scrollTo(0,0)
+    }
+
+    */

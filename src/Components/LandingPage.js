@@ -79,6 +79,11 @@ const LandingPage = () => {
         }
     }
 
+    const handleGoUp = () => {
+        window.scrollTo(0,550);
+      
+    }
+
     return (
         <div>
         <div className="div_presentation">
@@ -131,6 +136,7 @@ const LandingPage = () => {
                         onPageChange={changePage}
                         className="pagination_main"
                         activeClassName="paginationActive"
+                        onClick={handleGoUp}
                     />
                     </>)}
                 
