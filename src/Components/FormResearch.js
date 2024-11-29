@@ -11,7 +11,7 @@ const FormResearch = ({ research, updateResearch }) => {
     const [titleResearch, setTitleResearch] = useState('');
     const [filteredElement, setFilteredElement] = useState([]);
     const [isFocused, setIsFocused] = useState(false);
-
+    console.log(setFilteredElement)
     const handleFocus = () => {
         setIsFocused(true);
     };
@@ -38,10 +38,7 @@ const FormResearch = ({ research, updateResearch }) => {
         .then((data) => {
         setFilteredElement(data);
         }) 
-        
-        
     }
-
     /* Ces deux constantes permettent de modifier le rendu visuel des valeurs dans la barre de recherche */
     const handleSelectChange = (e) => {
         setSelectedValue(e.target.value);
@@ -60,7 +57,7 @@ const FormResearch = ({ research, updateResearch }) => {
         formData.name = titleResearch;
         formData.difficulty = selectedValue;
         formData.duration = selectedValue_2;
-        
+        console.log(formData)
         const isResearchValid = verifyResearch(formData);
         console.log(isResearchValid)
         await researchData();
@@ -73,7 +70,6 @@ const FormResearch = ({ research, updateResearch }) => {
         } else {
             console.log("je suis vide déjà")
         }
-       
     }
 
     return (
@@ -106,14 +102,16 @@ const FormResearch = ({ research, updateResearch }) => {
                             <div className="first_row_research">
 
                                 <select required name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
-                                    <option  disabled hidden>Difficultés</option>
+                                    {/* <option  disabled hidden>Difficultés</option> */}
+                                    <option value="null">Aucune difficulté renseignée</option>
                                     <option value="facile">facile</option>
                                     <option value="intermédiaire">intermédiaire</option>
                                     <option value="difficile">difficile</option>
                                 </select>
 
                                 <select required name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
-                                    <option  disabled hidden >Durée</option>
+                                    {/* <option  disabled hidden >Durée</option> */}
+                                    <option value="null">Aucune durée renseignée</option>
                                     <option value="15">15 minutes ou moins</option>
                                     <option value="30">30 minutes ou moins</option>
                                     <option value="45">45 minutes ou moins</option>
