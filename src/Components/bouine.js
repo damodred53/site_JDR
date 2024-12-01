@@ -196,3 +196,5 @@ export default Contact;
     }
 
     */
+
+    /* method="PATCH" action="localhost:3000/api/idee_scene" */

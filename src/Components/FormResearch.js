@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Image from "../assets/image_icone_loupe.svg"; 
 import Cross from "../assets/cross.svg";
 import { verifyResearch } from "../Services/Services.jsx";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const FormResearch = ({ research, updateResearch }) => {
 
@@ -11,7 +13,7 @@ const FormResearch = ({ research, updateResearch }) => {
     const [titleResearch, setTitleResearch] = useState('');
     const [filteredElement, setFilteredElement] = useState([]);
     const [isFocused, setIsFocused] = useState(false);
-    console.log(setFilteredElement)
+
     const handleFocus = () => {
         setIsFocused(true);
     };
@@ -34,7 +36,13 @@ const FormResearch = ({ research, updateResearch }) => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
         })
-        .then((response) => response.json())
+        .then((response) => {
+            if (response.status === 404) {
+                console.log("coucou");
+                toast.error("Aucune scène ne correspond à votre recherche, mais vous pouvez réessayer")
+            }
+            return response.json()
+        })
         .then((data) => {
         setFilteredElement(data);
         }) 
@@ -57,9 +65,7 @@ const FormResearch = ({ research, updateResearch }) => {
         formData.name = titleResearch;
         formData.difficulty = selectedValue;
         formData.duration = selectedValue_2;
-        console.log(formData)
         const isResearchValid = verifyResearch(formData);
-        console.log(isResearchValid)
         await researchData();
         updateResearch(filteredElement);
     }
@@ -112,10 +118,10 @@ const FormResearch = ({ research, updateResearch }) => {
                                 <select required name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
                                     {/* <option  disabled hidden >Durée</option> */}
                                     <option value="null">Aucune durée renseignée</option>
-                                    <option value="15">15 minutes ou moins</option>
-                                    <option value="30">30 minutes ou moins</option>
-                                    <option value="45">45 minutes ou moins</option>
-                                    <option value="60">60 minutes ou moins</option>
+                                    <option value="15">environ 15 minutes</option>
+                                    <option value="30">environ 30 minutes </option>
+                                    <option value="45">environ 45 minutes </option>
+                                    <option value="60">environ 60 minutes </option>
                                 </select>
 
                             </div>

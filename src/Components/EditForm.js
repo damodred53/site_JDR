@@ -2,13 +2,21 @@ import React from "react";
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { useEffect } from "react";
+import 'react-toastify/dist/ReactToastify.css';
 
 const EditForm =  () => {
 
     const [selectedValue, setSelectedValue] = useState('Difficultés');
     const [selectedValue_2, setSelectedValue_2] = useState('Durée');
-    const [data_2, setData] = useState([]);
+    const [data_2, setData] = useState({
+        pseudonyme: "",
+        title: "",
+        difficulties: null,
+        duration : "",
+        explication: "",
+        description: "",
+    });
 
     /* récupération de la valeur de ID contenu dans l'URL via le hook useParams */
     let {id} = useParams();
@@ -20,28 +28,30 @@ const EditForm =  () => {
 
     /* Fonction permettant d'aller chercher en base de données les informations existantes concernant 
     la scène que l'on va modifier, les informations sont ensuite afficher dynamiquement à l'écran dans le formulaire*/
-
+    useEffect(() => {
         const fetchData = async () => {
-            if(data_2.length === 0) {
                 await  fetch(`http://localhost:3000/api/idee_scene/${id}`)
-            .then(res => res.json())
+            .then(res => {
+                return res.json()})
             .then(data => {
                 if (data) {
+                    console.log("voici les données que j'obtiens : ", data)
                     setData(data);
                 }
             })
             .catch(error => {
                 console.error('Erreur lors de la récupération des données :', error);
             });
-            } else {
-                return
-            }    
-}
-fetchData();
+             
+        }
+
+        fetchData(); 
+    }, [])
+        
 
 /* Fonction permettant d'envoyer en base de données à les modifications */
 const postData = async () => {
-        
+        console.log(modifiedFormData)
     await fetch(`http://localhost:3000/api/idee_scene/${id}`, {
         method: 'PATCH',
         headers: {"Content-Type": "application/json"},
@@ -56,8 +66,8 @@ const postData = async () => {
         e.preventDefault();
         
         modifiedFormData = {
-            pseudonyme: e.target[0].value,
-            title: e.target[1].value,
+            pseudonyme: data_2.pseudonyme,
+            title: data_2.title,
             difficulties: e.target[2].value,
             duration: e.target[3].value,
             description: e.target[4].value,
@@ -68,6 +78,16 @@ const postData = async () => {
         
       };
 
+      const handleChange = (event) => {
+        
+        const {name, value} = event.target
+        console.log(name, value)
+        setData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }))
+      }
+
       /* Ces deux constantes permettent de modifier le rendu visuel des valeurs dans les 
       deux menus déroulants du formulaire */
       const handleSelectChange = (e) => {
@@ -76,7 +96,7 @@ const postData = async () => {
       const handleSelectChange_2 = (e) => {
         setSelectedValue_2(e.target.value);
       };
-
+      console.log(data_2)
     return (
        
         <div className="main_contact">
@@ -86,15 +106,15 @@ const postData = async () => {
             </div>
 
             <div className="form_div_main">
-                <form className="full_formulaire" onSubmit={handleSubmit} method="PATCH" action="localhost:3000/api/idee_scene">
+                <form className="full_formulaire" onSubmit={handleSubmit} >
                     <div className="pseudonyme_and_text_div">
                         <div className="under_div">
                             <label htmlFor="pseudonyme">Pseudonyme</label>
-                            <input required type="text" id="pseudonyme" name="pseudonyme" value={data_2.titre}></input>
+                            <input required type="text" id="pseudonyme" name="pseudonyme" value={data_2.pseudonyme} onChange={handleChange}></input>
                         </div>
                         <div className="under_div">
                             <label htmlFor="title">Titre de la scène</label>
-                            <input required type="text" id="title" name="title" value={data_2.titre}></input>
+                            <input required type="text" id="title" name="title" value={data_2.title} onChange={handleChange}></input>
                         </div>
                     </div>
 
@@ -104,7 +124,7 @@ const postData = async () => {
 
                         <div className="selection_edit" >
                             <div>
-                                <select required name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
+                                <select required name="difficulties" value={data_2.difficulties}  onChange={handleChange}>
                                     <option  disabled hidden>Difficultés</option>
                                     <option value="facile">facile</option>
                                     <option value="intermédiaire">intermédiaire</option>
@@ -114,7 +134,7 @@ const postData = async () => {
 
                             <div>
                                 
-                                <select required name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
+                                <select required name="duration" value={data_2.duration} onChange={handleChange} >
                                     <option  disabled hidden >Durée</option>
                                     <option value="15">15 minutes ou moins</option>
                                     <option value="30">30 minutes ou moins</option>
@@ -130,12 +150,12 @@ const postData = async () => {
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
                             <label htmlFor="description-scene">Description de la scène</label>
-                            <textarea required  className="textarea" type="text"  id="description-scene" name="description-scene"  >{data_2.description}</textarea>
+                            <textarea required  className="textarea" type="text"  id="description-scene" name="explication" value={data_2.explication} onChange={handleChange}></textarea>
                         </div>
 
                         <div className="under_div_scene">
                             <label htmlFor="description-gameplay">Description du gameplay</label>
-                            <textarea required className="textarea" type="text"  id="description-gameplay" name="description-gameplay" >{data_2.explication}</textarea>
+                            <textarea required className="textarea" type="text"  id="description-gameplay" name="description" value={data_2.description} onChange={handleChange} ></textarea>
                         </div>
                     </div>
 
