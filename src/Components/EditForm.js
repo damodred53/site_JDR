@@ -75,7 +75,7 @@ const postData = async () => {
           };
 
         postData();
-        
+        console.log(modifiedFormData)
       };
 
       const handleChange = (event) => {
@@ -88,14 +88,6 @@ const postData = async () => {
         }))
       }
 
-      /* Ces deux constantes permettent de modifier le rendu visuel des valeurs dans les 
-      deux menus déroulants du formulaire */
-      const handleSelectChange = (e) => {
-        setSelectedValue(e.target.value);
-      };
-      const handleSelectChange_2 = (e) => {
-        setSelectedValue_2(e.target.value);
-      };
       console.log(data_2)
     return (
        
@@ -150,12 +142,12 @@ const postData = async () => {
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
                             <label htmlFor="description-scene">Description de la scène</label>
-                            <textarea required  className="textarea" type="text"  id="description-scene" name="explication" value={data_2.explication} onChange={handleChange}></textarea>
+                            <textarea required  className="textarea" type="text"  id="description-scene" name="description" value={data_2.description} onChange={handleChange}></textarea>
                         </div>
 
                         <div className="under_div_scene">
                             <label htmlFor="description-gameplay">Description du gameplay</label>
-                            <textarea required className="textarea" type="text"  id="description-gameplay" name="description" value={data_2.description} onChange={handleChange} ></textarea>
+                            <textarea required className="textarea" type="text"  id="description-gameplay" name="explication" value={data_2.explication} onChange={handleChange} ></textarea>
                         </div>
                     </div>
 
