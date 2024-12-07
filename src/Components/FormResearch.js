@@ -38,7 +38,6 @@ const FormResearch = ({ research, updateResearch }) => {
         })
         .then((response) => {
             if (response.status === 404) {
-                console.log("coucou");
                 toast.error("Aucune scène ne correspond à votre recherche, mais vous pouvez réessayer")
             }
             return response.json()

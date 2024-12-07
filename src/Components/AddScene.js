@@ -58,16 +58,16 @@ const Contact = () => {
             <div className="form_div_main_newscene">
                 <form className="full_formulaire" onSubmit={handleSubmit} method="POST" action="localhost:3000/api/idee_scene">
                     
-                <div className="suggestion_newscene">
-                    <h1>Vous pouvez suggérer une nouvelle scène en remplissant ce formulaire. l'administrateur examinera alors votre proposition de scène </h1>
-                </div>
+                    <div className="suggestion_newscene">
+                        <h1>Voici la page vous permettant de créer une nouvelle scène pour le Scenatorium </h1>
+                    </div>
                        
                     <div className="pseudonyme_and_text_div">
-                        <div className="under_div">
+                        <div className="pseudonyme_and_text_div_under_div">
                             <label htmlFor="pseudonyme">Pseudonyme</label>
                             <input required type="text" id="pseudonyme" name="pseudonyme" ></input>
                         </div>
-                        <div className="under_div">
+                        <div className="pseudonyme_and_text_div_under_div">
                             <label htmlFor="title">Titre de la scène</label>
                             <input required type="text" id="title" name="title"  ></input>
                         </div>

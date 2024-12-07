@@ -4,8 +4,6 @@ import {getImageSrc} from "./Images"
 
 const Card = ({titre, auteur, imageUrl, id}) => {
 
-    console.log("voici les urls que j'obtiens :", imageUrl)
-
     return (
         
             <div className="div_main_card" key={0}>
