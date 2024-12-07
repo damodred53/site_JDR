@@ -18,8 +18,9 @@ const LandingPage = () => {
 
     // Déterminer les cartes à afficher en fonction des résultats (recherche ou données de base)
     const activeData = research.length > 0 ? research : data;
-    const displayCards = activeData.slice(pagesVisited, pagesVisited + cardsPerPage).map(({ title, pseudonyme, _id }) => (
-        <Card id={_id} key={_id} titre={title} auteur={pseudonyme} />
+    console.log("voici l'ensemble des active data : ", activeData)
+    const displayCards = activeData.slice(pagesVisited, pagesVisited + cardsPerPage).map(({ title, pseudonyme, _id, imageUrl }) => (
+        <Card id={_id} key={_id} titre={title} auteur={pseudonyme} imageUrl={imageUrl} />
     ));
 
     const pageCount = Math.ceil(activeData.length / cardsPerPage);

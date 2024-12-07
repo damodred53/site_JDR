@@ -854,11 +854,15 @@ body {
         
 
         .title_author_div {
-            @include center_row_flex_display;
+            //@include center_row_flex_display;
+            display : flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             width: 50%;
-            height: 50%;
-            gap: 10%;
-            font-size: 30px;
+            padding-top: 2.5rem;
+            gap: 20%;
+            font-size: 40px;
             font-family: $Dancing_script;
             font-weight: bold;
             white-space: nowrap;
@@ -1084,11 +1088,14 @@ body {
     display: none;
 }
 
-/* Le composant d'ajout dee scène */
+/* Le composant d'ajout des scènes */
 
 .form_div_main_newscene {
+
     border-radius: 10px;
-    width: 100%;
+    width: 50%;
+    margin-left: 25%;
+
     @include center_column_flex_display;
 
     @media (max-width:1200px) {
@@ -1102,11 +1109,6 @@ body {
         padding-left: 3%;
         font-size: 24px;
     }
-
-    
-    
-        
-
         
         .description_gameplay_contact_div {
             display: flex;
