@@ -44,7 +44,7 @@ const Header = () => {
     return (
         <div className="header">
             <div className="welcome_and_navbar">
-                <h1>Bienvenue sur le Scenatorium</h1>
+                <h1><Link to="/" className="home_title" onClick={handleClickAcceuil}>Bienvenue sur le Scenatorium</Link></h1>
                 <nav className="navbar_Header">
 
                     <ul className="navbar_Header_list">

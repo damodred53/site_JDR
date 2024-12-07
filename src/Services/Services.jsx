@@ -6,6 +6,9 @@ export const verifyForm = (formData) => {
     if (formData.pseudonyme.trim() === "") {
         hasError.name = true;
     }
+    if (formData.title.trim() === "") {
+        hasError.title = true;
+    }
     if (formData.email.trim() === "") {
         hasError.mail = true;
     }

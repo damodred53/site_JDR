@@ -68,6 +68,11 @@ body {
     background-color:black;
     font-family: $Dancing_script;
 
+    .home_title{
+        text-decoration: none;
+        color: white;
+    }
+
     .welcome_and_navbar{
         height: 100%;
         font-style: italic;
