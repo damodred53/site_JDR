@@ -64,18 +64,19 @@ const SceneCard = () => {
                 <div className='warning_delete' >
 
                     <h1>Êtes-vous sur de vouloir supprimer cette scène ?</h1>
-                    <div className='answer_yes_no'>
-                        <Link to={`/`}>
-                            <p onClick={handleErase}>OUI</p>
-                        </Link>
-
+                    <div className={`${isModalOpen ? "myModal_warning_delete" : "hidden_warning_delete"}`}>
+            <div className='warning_delete' >
                         
-                        <span className='material_symbols_outlined'>
-                                <img src={Bin} alt="icone de suppression de la scène" onClick={handleDelete}/>   
-                        </span> 
+                        <h1>Êtes-vous sur de vouloir supprimer cette scène ?</h1>
+                        <div className='answer_yes_no'>
+                        <Link to={`/`}> 
+                            <p onClick={handleErase}>OUI</p>
+                        </Link> 
+                            <p onClick={handleDelete}>NON</p>
                         </div>
-                        : 
-                        null}
+                    </div>
+            </div> 
+                        
                         
                             
                     <div className="scene_card_main">
