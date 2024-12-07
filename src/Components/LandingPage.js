@@ -18,7 +18,7 @@ const LandingPage = () => {
 
     // Déterminer les cartes à afficher en fonction des résultats (recherche ou données de base)
     const activeData = research.length > 0 ? research : data;
-    console.log("voici l'ensemble des active data : ", activeData)
+
     const displayCards = activeData.slice(pagesVisited, pagesVisited + cardsPerPage).map(({ title, pseudonyme, _id, imageUrl }) => (
         <Card id={_id} key={_id} titre={title} auteur={pseudonyme} imageUrl={imageUrl} />
     ));
@@ -70,10 +70,8 @@ const LandingPage = () => {
         window.scrollTo(0, 550);
     };
 
-    // console.log("Données affichées : ", research);
-
     return (
-        <div>
+        
             <div className="div_presentation">
                 <section className="explanation_landingpage">
                     <Introduction />
@@ -121,7 +119,7 @@ const LandingPage = () => {
                     />
                 </div>
             </div>
-        </div>
+        
     );
 };
 

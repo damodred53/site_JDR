@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Contact = () => {
 
@@ -13,16 +14,20 @@ const Contact = () => {
       /* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
       const postData = async () => {
         
-        await fetch('http://localhost:3000/api/idee_scene', {
+        const response = await fetch('http://localhost:3000/api/idee_scene', {
             method: 'POST',
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(formData)
-        });
+        })
 
+        if (response.ok) {
+            toast.success("Vous venez de créer une nouvelle scène");
+        } else {
+            toast.error("Imposible de créer la nouvelles scène")
+        }
+    
         navigate('/');
       }
-
-
       /* fonction permettant de récupérer les informations contenus dans le formulaire de contact et de stocker les 
       informations dans formData avant son envoi en base de donnés */
 

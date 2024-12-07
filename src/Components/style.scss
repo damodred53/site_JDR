@@ -102,6 +102,12 @@ body {
             @media (max-width: 1300px) {
                 display: block;
             }
+
+            @media (max-width: 500px) {
+                width: 3rem;
+                height: 2.5rem;
+            }
+            
             
         }
         
@@ -549,8 +555,15 @@ body {
          justify-content: center;
          gap: 5%;
         align-items: center;
-        
      }
+
+     @media (max-width: 680px) {
+        display: flex;
+        flex-direction: column;
+       
+     }
+
+
  .selection {
      width: 100%;
  }
@@ -641,8 +654,24 @@ body {
             margin-bottom: 3rem;
             padding-top: 1rem;
             column-gap: 2rem;
-            
 
+            @media (max-width: 900px) {
+                display: flex;
+                flex-direction: column;
+                gap:1rem;
+                margin-bottom: 1rem;
+
+                .email_hard_duration_div {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .email_div {
+                    width: 100%;
+                    
+                }
+            }
+            
             &_name, &_title {
                 display: flex;
                 flex-direction: column;
@@ -928,6 +957,15 @@ body {
     gap: 15%;
     height: 20%;
 
+    @media(max-width: 1200px) {
+        right: 100px;
+    }
+
+    @media(max-width: 680px) {
+        right: 70px;
+        height: fit-content;
+    }
+
 
     .material_symbols_outlined{
         cursor: pointer;
@@ -974,6 +1012,8 @@ body {
 
         @media (max-width: 1700px) {
             @include center_column_flex_display;
+            padding-top: 1rem;
+            row-gap: 1rem;
             
         }
 
@@ -1284,7 +1324,7 @@ body {
     background-color: black;
     gap: 5%;
 
-    @media (max-width:550px ) {
+    @media (max-width:650px ) {
         @include center_column_flex_display;
     }
    
@@ -1360,4 +1400,34 @@ body {
             width: 50%;
         }
     }
+}
+
+
+/* modification media queries */
+
+
+@media (max-width : 500px) {
+
+    .div_presentation {
+        background-size: contain;
+        background-repeat: repeat-y;
+    }
+    
+
+    .text_presentation {
+        padding: 3rem;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .admin_space {
+        display: none;
+        flex-direction: column!important;
+    }
+
+    .pagination_main {
+        width: 75%!important;
+    }
+
+    
 }

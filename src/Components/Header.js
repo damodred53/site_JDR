@@ -38,7 +38,6 @@ const Header = () => {
     }*/
     const setOpen = () => {
         setOpening(!opening);
-        
     }
 
     return (

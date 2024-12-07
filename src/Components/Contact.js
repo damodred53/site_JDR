@@ -142,7 +142,7 @@ const Contact = () => {
 
 
                     <div className="email_hard_duration_div">
-                        <div >
+                        
                             <div className="email_div" >
                                 <label htmlFor="email">Email</label>
                                 <input type="email" id="email" name="email"  ></input>
@@ -152,8 +152,8 @@ const Contact = () => {
                                     <p className="name_title_title_error" ref={refEmail}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
                                 </div>
                             }
-                        </div>
-
+                        
+                        
 
                         <div className="selections" >
                             <div>
