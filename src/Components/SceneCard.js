@@ -30,7 +30,7 @@ const SceneCard = () => {
             setHasToken(true);
         }
 
-        fetch(`http://localhost:3000/api/idee_scene/${id}`)
+        fetch(`http://localhost:3000/api/scenes/${id}`)
             .then(res => res.json())
             .then(data => {
                 if (data) {
@@ -50,9 +50,9 @@ const SceneCard = () => {
     /* fonction permettant de gérer la suppression d'une scène en base de donnée */
     const handleErase = async () => {
 
-        await fetch(`http://localhost:3000/api/idee_scene/${id}`, {
+        await fetch(`http://localhost:3000/api/scenes/${id}`, {
             method: "DELETE",
-            headers: { "Content-Type": "application/json" },
+            headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("tokenUser")},
         })
         toast.success("scène supprimée de la base de données avec succès");
     }

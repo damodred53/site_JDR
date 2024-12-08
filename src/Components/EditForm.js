@@ -7,8 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const EditForm =  () => {
 
-    const [selectedValue, setSelectedValue] = useState('Difficultés');
-    const [selectedValue_2, setSelectedValue_2] = useState('Durée');
     const [data_2, setData] = useState({
         pseudonyme: "",
         title: "",
@@ -30,7 +28,7 @@ const EditForm =  () => {
     la scène que l'on va modifier, les informations sont ensuite afficher dynamiquement à l'écran dans le formulaire*/
     useEffect(() => {
         const fetchData = async () => {
-                await  fetch(`http://localhost:3000/api/idee_scene/${id}`)
+                await  fetch(`http://localhost:3000/api/scenes/${id}`)
             .then(res => {
                 return res.json()})
             .then(data => {
@@ -52,9 +50,9 @@ const EditForm =  () => {
 /* Fonction permettant d'envoyer en base de données à les modifications */
 const postData = async () => {
         console.log(modifiedFormData)
-    await fetch(`http://localhost:3000/api/idee_scene/${id}`, {
-        method: 'PATCH',
-        headers: {"Content-Type": "application/json"},
+    await fetch(`http://localhost:3000/api/scenes/${id}`, {
+        method: 'PUT',
+        headers: {"Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("tokenUser")},
         body: JSON.stringify(modifiedFormData)
     })
     toast.success('Modification effectuée avec succès');
@@ -142,12 +140,12 @@ const postData = async () => {
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
                             <label htmlFor="description-scene">Description de la scène</label>
-                            <textarea required  className="textarea" type="text"  id="description-scene" name="description" value={data_2.description} onChange={handleChange}></textarea>
+                            <textarea required  className="textarea"  id="description-scene" name="description" value={data_2.description} onChange={handleChange}></textarea>
                         </div>
 
                         <div className="under_div_scene">
                             <label htmlFor="description-gameplay">Description du gameplay</label>
-                            <textarea required className="textarea" type="text"  id="description-gameplay" name="explication" value={data_2.explication} onChange={handleChange} ></textarea>
+                            <textarea required className="textarea"  id="description-gameplay" name="explication" value={data_2.explication} onChange={handleChange} ></textarea>
                         </div>
                     </div>
 

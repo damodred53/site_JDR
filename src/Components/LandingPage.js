@@ -35,7 +35,7 @@ const LandingPage = () => {
             setHasToken(true);
         }
 
-        fetch(`http://localhost:3000/api/scene`)
+        fetch(`http://localhost:3000/api/scenes`)
             .then((res) => res.json())
             .then((data) => {
                 if (data) {

@@ -14,9 +14,9 @@ const Contact = () => {
       /* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
       const postData = async () => {
         
-        const response = await fetch('http://localhost:3000/api/idee_scene', {
+        const response = await fetch('http://localhost:3000/api/scenes', {
             method: 'POST',
-            headers: {"Content-Type": "application/json"},
+            headers: {"Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("tokenUser")},
             body: JSON.stringify(formData)
         })
 
@@ -61,7 +61,7 @@ const Contact = () => {
     return (
         <div className="main_contact">
             <div className="form_div_main_newscene">
-                <form className="full_formulaire" onSubmit={handleSubmit} method="POST" action="localhost:3000/api/idee_scene">
+                <form className="full_formulaire" onSubmit={handleSubmit} method="POST" action="localhost:3000/api/scenes">
                     
                     <div className="suggestion_newscene">
                         <h1>Voici la page vous permettant de créer une nouvelle scène pour le Scenatorium </h1>
@@ -111,12 +111,12 @@ const Contact = () => {
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
                             <label htmlFor="description-scene">Description de la scène</label>
-                            <textarea required  className="textarea" type="text" placeholder="Votre description ici..." id="description-scene" name="description-scene"  ></textarea>
+                            <textarea required  className="textarea" placeholder="Votre description ici..." id="description-scene" name="description-scene"  ></textarea>
                         </div>
 
                         <div className="under_div_scene">
                             <label htmlFor="description-gameplay">Description du gameplay</label>
-                            <textarea required className="textarea" type="text" placeholder="Votre explication du gameplay ici..." id="description-gameplay" name="description-gameplay"  ></textarea>
+                            <textarea required className="textarea" placeholder="Votre explication du gameplay ici..." id="description-gameplay" name="description-gameplay"  ></textarea>
                         </div>
                     </div>
                     <div className="button_contact">

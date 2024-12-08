@@ -2,7 +2,6 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Image from "../assets/image_icone_loupe.svg"; 
 import Cross from "../assets/cross.svg";
-import { verifyResearch } from "../Services/Services.jsx";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -31,7 +30,7 @@ const FormResearch = ({ research, updateResearch }) => {
     let formData = {};
     const researchData = async () => {
         console.log(formData)
-        await fetch('http://localhost:3000/api/research', {
+        await fetch('http://localhost:3000/api/scenes/search', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
@@ -64,7 +63,6 @@ const FormResearch = ({ research, updateResearch }) => {
         formData.name = titleResearch;
         formData.difficulty = selectedValue;
         formData.duration = selectedValue_2;
-        const isResearchValid = verifyResearch(formData);
         await researchData();
         updateResearch(filteredElement);
     }
