@@ -64,7 +64,6 @@ body {
 .header {
     color: $color_text;
     height: 150px;
-    /*width: 100%;*/
     background-color:black;
     font-family: $Dancing_script;
 
@@ -79,7 +78,6 @@ body {
         @include space_row_flex_display;
         h1 {
             font-size: 60px;
-
             @media (max-width: 780px) {
                 font-size: 35px;    
             }
@@ -90,8 +88,6 @@ body {
             h1 {
                 font-size: 24px;
             }
-            
-            
         }
 
         .burger_header {
@@ -107,8 +103,6 @@ body {
                 width: 3rem;
                 height: 2.5rem;
             }
-            
-            
         }
         
 
@@ -141,6 +135,18 @@ body {
         @media (max-width: 1540px) {
             justify-content: center;
             gap: 5%;
+        }
+
+        @media (max-width : 360px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+
+            .home_title {
+                font-size: 25px;
+                width: 20%;
+            }
         }
     }
     .underline {
@@ -540,6 +546,21 @@ body {
         width: 100%;
         padding: 5%;
         font-size: 30px;
+        text-align: center;
+    }
+
+    @media (max-width : 700px) {
+       h3 {
+        font-size: 35px;
+       } 
+    }
+
+    @media (max-width: 450px) {
+        
+        h3 {
+            font-size: 25px;
+            padding: 2rem;
+           } 
     }
 }
 
@@ -777,6 +798,17 @@ body {
                 font-weight: bold;
                 border-radius: $border_radius;
             }
+
+            @media (max-width: 420px) {
+                button {
+                    min-width: 75px;
+                }
+            }
+        }
+
+        @media (max-width: 450px) {
+            margin: 0%;
+            margin-top: 2rem;
         }
     }
 }
@@ -900,16 +932,19 @@ body {
             color: $color_text;   
 
             @media (max-width:1540px) {
-                font-size: 18px;
+                font-size: 25px;
                 display: flex;
-                justify-content: flex-start;
-
-                
+                justify-content: flex-start; 
             }
+
             @media (max-width:700px) {
-                
+                font-size: 22px;
                 flex-direction: column;
                 justify-content: center;
+            }
+
+            @media (max-width: 550px) {
+                white-space: wrap;
             }
 
 
@@ -1214,10 +1249,11 @@ body {
 
     @media (max-width: 560px) {
         flex-direction: column;
-       
+        background-repeat: repeat-y;
+        background-size: contain;
+        justify-content: flex-start;
+        align-items: center;
     }
-
-    
     .vertical_bar {
         background-color: white;
         width: 1px;
@@ -1229,38 +1265,41 @@ body {
     }
     
     .main_connection, .main_signing_up {
-        width: 50%;
+        width: 90%;
         height: 850px;
         @include center_column_flex_display;
 
-        
-        
-    .title_connection {
-        font-family: $Dancing_script;
-        padding-bottom: 5%;
-        font-weight: bold;
-        font-size: 40px;
-        text-transform: uppercase;
-    }
+        @media (max-width: 560px) {
+            justify-content: flex-start;
+            height: auto;
+        }
 
-    .button_authentification {
-        border-radius: $border_radius;
-        color: $color_text;
-        margin-top: 5%;
-        height: 45px;
-        font-family: $Dancing_script;
-        width: fit-content;
-       background-color: rgba(0, 0, 0, 0.6);
-       border: white 1px solid;
-       font-size: 24px;
-       cursor: pointer;
-       font-weight: bold;
-    }
+        .title_connection {
+            font-family: $Dancing_script;
+            padding-bottom: 5%;
+            font-weight: bold;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+
+        .button_authentification {
+            border-radius: $border_radius;
+            color: $color_text;
+            margin-top: 5%;
+            height: 45px;
+            font-family: $Dancing_script;
+            width: fit-content;
+            background-color: rgba(0, 0, 0, 0.6);
+            border: white 1px solid;
+            font-size: 24px;
+            cursor: pointer;
+            font-weight: bold;
+        }
     
-    .button_authentification:hover {
-        color: green;
-        border: green 1px solid;
-    }
+        .button_authentification:hover {
+            color: green;
+            border: green 1px solid;
+        }
 
         .form_authentification {
             border-radius: $border_radius;
@@ -1276,7 +1315,11 @@ body {
 
             @media (max-width: 560px) {
                 width: 100%;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                
             }
+
 
             .under_div {
                 @include center_row_flex_display;
@@ -1405,6 +1448,11 @@ body {
 
 /* modification media queries */
 
+@media (max-width : 670px) {
+    .pagination_main {
+        width: 75%!important;
+    }
+}
 
 @media (max-width : 500px) {
 
@@ -1425,9 +1473,7 @@ body {
         flex-direction: column!important;
     }
 
-    .pagination_main {
-        width: 75%!important;
-    }
+    
 
     
 }
