@@ -1,16 +1,16 @@
 import React from "react";
-import { useParams } from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import Logo_1 from "../assets/Vector_1.svg";
 import Logo_2 from "../assets/Vector_2.svg";
 import Logo_3 from "../assets/Vector_3.svg";
-import { useState } from "react";
-import { useEffect } from "react";
+import {useState} from "react";
+import {useEffect} from "react";
 import Icone from "../assets/edit.png";
 import Bin from "../assets/bin.png";
-import { Link } from "react-router-dom";
-import { toast } from 'react-toastify';
+import {Link} from "react-router-dom";
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getImageSrc } from "./Images";
+import {getImageSrc} from "./Images";
 
 const SceneCard = () => {
 
@@ -19,7 +19,7 @@ const SceneCard = () => {
     const [hasToken, setHasToken] = useState(false);
 
     /* récupération de la valeur de ID contenu dans l'URL via le hook useParams */
-    const { id } = useParams();
+    const {id} = useParams();
 
     /* Fonction permettant d'aller chercher en base de données les informations sur la scène 
     les informations sont ensuite afficher dynamiquement à l'écran dans le formulaire*/
@@ -52,7 +52,10 @@ const SceneCard = () => {
 
         await fetch(`http://localhost:3000/api/scenes/${id}`, {
             method: "DELETE",
-            headers: { "Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("tokenUser")},
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("tokenUser")
+            },
         })
         toast.success("scène supprimée de la base de données avec succès");
     }
@@ -61,49 +64,48 @@ const SceneCard = () => {
         <div className="main_card">
 
             <div className={`${isModalOpen ? "myModal_warning_delete" : "hidden_warning_delete"}`}>
-                <div className='warning_delete' >
+                <div className='warning_delete'>
 
                     <h1>Êtes-vous sur de vouloir supprimer cette scène ?</h1>
                     <div className={`${isModalOpen ? "myModal_warning_delete" : "hidden_warning_delete"}`}>
-            <div className='warning_delete' >
-                        
-                        <h1>Êtes-vous sur de vouloir supprimer cette scène ?</h1>
-                        <div className='answer_yes_no'>
-                        <Link to={`/`}> 
-                            <p onClick={handleErase}>OUI</p>
-                        </Link> 
-                            <p onClick={handleDelete}>NON</p>
+                        <div className='warning_delete'>
+
+                            <h1>Êtes-vous sur de vouloir supprimer cette scène ?</h1>
+                            <div className='answer_yes_no'>
+                                <Link to={`/`}>
+                                    <p onClick={handleErase}>OUI</p>
+                                </Link>
+                                <p onClick={handleDelete}>NON</p>
+                            </div>
                         </div>
                     </div>
-            </div> 
-                        
-                        
-                            
+
+
                     <div className="scene_card_main">
-                        
-                            <h1 className="title_scene_card">{Item.title}</h1>
-                            <div className="duration_modification_author_card">
 
-                                <div className="duration_card">
-                                    <img src={Logo_3} alt="icône d'horloge" /> 
-                                    <p>{`Durée : ${Item.duration} minutes`}</p>
-                                </div>
-                                <div className="date_modification_card">
-                                    <img alt="icône de crayon" src={Logo_1}/>
-                                    <p >{`Difficultés : ${Item.difficulties}`}</p>
-                                </div>
+                        <h1 className="title_scene_card">{Item.title}</h1>
+                        <div className="duration_modification_author_card">
 
-                                <div className="author_card">
-                                    <img alt="icône de personnage" src={Logo_2}/>
-                                    <p >{`Auteur : ${Item.pseudonyme}`}</p>
-                                </div>
+                            <div className="duration_card">
+                                <img src={Logo_3} alt="icône d'horloge"/>
+                                <p>{`Durée : ${Item.duration} minutes`}</p>
+                            </div>
+                            <div className="date_modification_card">
+                                <img alt="icône de crayon" src={Logo_1}/>
+                                <p>{`Difficultés : ${Item.difficulties}`}</p>
                             </div>
 
-                            <div className="list_tags"></div>
-                            <img className="image_card" alt="image_cyberpunk" src={Image}/>
-                            <p className="description_card">{Item.description}</p>
-                            <p className="explanation_card">{Item.explication}</p>
-                        
+                            <div className="author_card">
+                                <img alt="icône de personnage" src={Logo_2}/>
+                                <p>{`Auteur : ${Item.pseudonyme}`}</p>
+                            </div>
+                        </div>
+
+                        <div className="list_tags"></div>
+                        <img className="image_card" alt="image_cyberpunk" src={Image}/>
+                        <p className="description_card">{Item.description}</p>
+                        <p className="explanation_card">{Item.explication}</p>
+
                     </div>
                 </div>
             </div>
@@ -113,13 +115,13 @@ const SceneCard = () => {
                 <div className="instruction_auth_scene_card">
                     <Link to={`/edit/form/${id}`}>
                         <span className="material_symbols_outlined">
-                            <img src={Icone} alt="icone de modification de la scène" />
+                            <img src={Icone} alt="icone de modification de la scène"/>
                         </span>
                     </Link>
 
 
                     <span className='material_symbols_outlined'>
-                        <img src={Bin} alt="icone de suppression de la scène" onClick={handleDelete} />
+                        <img src={Bin} alt="icone de suppression de la scène" onClick={handleDelete}/>
                     </span>
                 </div>
                 :
@@ -131,22 +133,22 @@ const SceneCard = () => {
                 <div className="duration_modification_author_card">
 
                     <div className="duration_card">
-                        <img src={Logo_3} alt="icône d'horloge" />
+                        <img src={Logo_3} alt="icône d'horloge"/>
                         <p>{`Durée : ${Item.duration} minutes`}</p>
                     </div>
                     <div className="date_modification_card">
-                        <img alt="icône de crayon" src={Logo_1} />
-                        <p >{`Difficultés : ${Item.difficulties}`}</p>
+                        <img alt="icône de crayon" src={Logo_1}/>
+                        <p>{`Difficultés : ${Item.difficulties}`}</p>
                     </div>
 
                     <div className="author_card">
-                        <img alt="icône de personnage" src={Logo_2} />
-                        <p >{`Auteur : ${Item.pseudonyme}`}</p>
+                        <img alt="icône de personnage" src={Logo_2}/>
+                        <p>{`Auteur : ${Item.pseudonyme}`}</p>
                     </div>
                 </div>
 
                 <div className="list_tags"></div>
-                <img className="image_card" alt="image_cyberpunk" src={getImageSrc(Item.imageUrl ?? "")} />
+                <img className="image_card" alt="image_cyberpunk" src={getImageSrc(Item.imageUrl ?? "")}/>
                 <p className="description_card">{Item.description}</p>
                 <p className="explanation_card">{Item.explication}</p>
 
