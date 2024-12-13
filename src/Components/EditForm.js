@@ -89,7 +89,7 @@ const EditForm = () => {
     const handleChange = (event) => {
 
         const {name, value} = event.target
-        console.log("editing " +name + "with value "+ value);
+        console.log("editing " + name + "with value " + value);
         setSceneData((prevData) => ({
             ...prevData,
             [name]: value,
@@ -98,8 +98,8 @@ const EditForm = () => {
 
     console.log(sceneData)
     return (
-        <div className="main_contact">
-            <div className="form_div_main_newscene">
+        <div className="main_edit_form">
+            <div className="form_div_main_editscene">
                 <form className="full_formulaire" onSubmit={handleSubmit}>
                     <div className="suggestion_newscene">
                         <h1>Vous pouvez modifier à présent cette scène :</h1>
@@ -123,7 +123,8 @@ const EditForm = () => {
                     <div className="email_hard_duration_div">
                         <div className="email_div">
                             <label htmlFor="email">Email</label>
-                            <input required type="email" id="email" name="email" value={sceneData.email} onChange={handleChange}></input>
+                            <input required type="email" id="email" name="email" value={sceneData.email}
+                                   onChange={handleChange}></input>
                         </div>
 
                         <div className="selections">
