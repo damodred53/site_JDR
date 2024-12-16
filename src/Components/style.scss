@@ -270,18 +270,7 @@ body {
             padding-bottom: 2%;
            
 
-        .button_create_new_scene {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            font-style: italic;
-            width: fit-content;
-            height: auto;
-            font-size: 24px;
-            border: white 1px solid;
-            cursor: pointer;
-            white-space: nowrap;
-            padding: 1%;
-        }
+        
         .button_create_new_scene:hover {
             color: green;
             border: green 1px solid;
@@ -1451,8 +1440,10 @@ body {
     background-color: black;
     gap: 5%;
 
-    @media (max-width:650px ) {
+    @media (max-width:850px ) {
         @include center_column_flex_display;
+        margin-top: 2rem;
+        row-gap: 1rem;
     }
    
     
@@ -1556,8 +1547,17 @@ body {
         display: none;
         flex-direction: column!important;
     }
+}
 
-    
-
-    
+.button_create_new_scene {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-style: italic;
+    width: fit-content;
+    height: auto;
+    font-size: 24px;
+    border: white 1px solid;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 1rem;
 }

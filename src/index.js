@@ -35,8 +35,9 @@ root.render(
                 <Route path='/authentification' element={<Admin />} />
             </Routes>
 
+            <Footer />
         </Router>
-        <Footer />
+        
 
         <ToastContainer
             hideProgressBar={true}

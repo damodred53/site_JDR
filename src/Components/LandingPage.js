@@ -51,10 +51,6 @@ const LandingPage = () => {
         navigate("/newscene");
     };
 
-    const handleClickAuthentification = () => {
-        navigate("/authentification");
-    };
-
     const handleClickDisconnect = () => {
         try {
             if (hasToken === true) {
@@ -70,6 +66,7 @@ const LandingPage = () => {
         window.scrollTo(0, 550);
     };
 
+    
     return (
         
             <div className="div_presentation">
@@ -98,11 +95,6 @@ const LandingPage = () => {
                                 </button>
                             </div>
                         </section>
-                        <div className="create_new_scene">
-                            <button className="button_create_new_scene" onClick={handleClickAuthentification}>
-                                Accès admin
-                            </button>
-                        </div>
                     </div>
                 </section>
                 <div className="cards_area">
