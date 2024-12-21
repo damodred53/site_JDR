@@ -74,13 +74,13 @@ const Admin = () => {
                         
                             
                             <div className="under_div">
-                                <label>Email</label>
-                                <input type="text" placeholder="Votre adresse email..." required></input>
+                                <label htmlFor="emailLogin">Email</label>
+                                <input type="text" placeholder="Votre adresse email..." id="emailLogin" name="emailLogin" required></input>
                             </div>
 
                             <div className="under_div">
-                                <label>Mot de passe</label>
-                                <input type="password" placeholder="Votre mot de passe..." required></input>
+                                <label htmlFor="passLogin">Mot de passe</label>
+                                <input type="password" placeholder="Votre mot de passe..." id="passLogin" name="passLogin" required></input>
                             </div>
 
                             <button className="button_authentification">Connexion</button>
@@ -98,13 +98,13 @@ const Admin = () => {
                         
                             
                             <div className="under_div">
-                                <label>Email</label>
-                                <input type="text" placeholder="Votre adresse email..." ></input>
+                                <label htmlFor="emailSuscribe">Email</label>
+                                <input type="text" placeholder="Votre adresse email..." id="emailSuscribe" name="emailSuscribe" ></input>
                             </div>
 
                             <div className="under_div">
-                                <label>Mot de passe</label>
-                                <input type="password" placeholder="Votre mot de passe..." ></input>
+                                <label htmlFor="passSuscribe">Mot de passe</label>
+                                <input type="password" placeholder="Votre mot de passe..." id="passSuscribe" name="passSuscribe" ></input>
                             </div>
 
                             <button className="button_authentification" value="submit" type="submit">Inscription</button>

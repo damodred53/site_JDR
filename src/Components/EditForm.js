@@ -34,7 +34,6 @@ const EditForm = () => {
                 const res = await fetch(`http://localhost:3000/api/scenes/${id}`);
                 const data = await res.json();
                 if (data) {
-                    console.log("voici les données que j'obtiens : ", data);
                     if (!data.email) {
                         data.email = "";
                     }
@@ -80,23 +79,19 @@ const EditForm = () => {
             description: sceneData.description,
             explication: sceneData.explication,
         };
-        console.log("modifiedFormData", modifiedFormData)
 
         postData();
-        console.log(modifiedFormData)
     };
 
     const handleChange = (event) => {
 
         const {name, value} = event.target
-        console.log("editing " + name + "with value " + value);
         setSceneData((prevData) => ({
             ...prevData,
             [name]: value,
         }))
     }
 
-    console.log(sceneData)
     return (
         <div className="main_edit_form">
             <div className="form_div_main_editscene">
@@ -124,7 +119,7 @@ const EditForm = () => {
                         <div className="email_div">
                             <label htmlFor="email">Email</label>
                             <input required type="email" id="email" name="email" value={sceneData.email}
-                                   onChange={handleChange}></input>
+                                   onChange={handleChange} autoComplete="email" ></input>
                         </div>
 
                         <div className="selections">
