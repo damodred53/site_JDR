@@ -78,34 +78,6 @@ const SceneCard = () => {
                             </div>
                         </div>
                     </div>
-
-
-                    <div className="scene_card_main">
-
-                        <h1 className="title_scene_card">{Item.title}</h1>
-                        <div className="duration_modification_author_card">
-
-                            <div className="duration_card">
-                                <img src={Logo_3} alt="icône d'horloge"/>
-                                <p>{`Durée : ${Item.duration} minutes`}</p>
-                            </div>
-                            <div className="date_modification_card">
-                                <img alt="icône de crayon" src={Logo_1}/>
-                                <p>{`Difficultés : ${Item.difficulties}`}</p>
-                            </div>
-
-                            <div className="author_card">
-                                <img alt="icône de personnage" src={Logo_2}/>
-                                <p>{`Auteur : ${Item.pseudonyme}`}</p>
-                            </div>
-                        </div>
-
-                        <div className="list_tags"></div>
-                        <img className="image_card" alt="image_cyberpunk" src={Image}/>
-                        <p className="description_card">{Item.description}</p>
-                        <p className="explanation_card">{Item.explication}</p>
-
-                    </div>
                 </div>
             </div>
 

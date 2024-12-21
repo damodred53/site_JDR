@@ -8,34 +8,24 @@ const Header = () => {
     const [accueilActive, setAccueilActive] = useState(true);
     const [aboutActive, setAboutActive] = useState(false);
     const [contactActive, setContactActive] = useState(false);
-    const [newSceneActive, setNewSceneActive] = useState(false);
     const [opening, setOpening] = useState(false)
 
     const handleClickAcceuil = () => {
         setAccueilActive(true);
         setAboutActive(false);
         setContactActive(false);
-        /*setNewSceneActive(false);*/
     }
     const handleClickAbout = () => {
         setAccueilActive(false);
         setAboutActive(true);
         setContactActive(false);
-        /*setNewSceneActive(false);*/
     }
     const  handleClickContact = () => {
         setAccueilActive(false);
         setAboutActive(false);
         setContactActive(true);
-        /*setNewSceneActive(false);*/
     }
 
-    /*const handleClickNewScene = () => {
-        setAccueilActive(false);
-        setAboutActive(false);
-        setContactActive(false);
-        setNewSceneActive(true);
-    }*/
     const setOpen = () => {
         setOpening(!opening);
     }
@@ -56,7 +46,6 @@ const Header = () => {
                     <img alt="menu burger" className="burger_header" src={Burger} onClick={setOpen}/>
                     
                     <div className={`${opening ? "opened_navbar" : "invisible_navbar"}`}>
-                       
                             <Link className="menu_hidden_navbar" to="/"  onClick={setOpen}>Accueil</Link>
                             <Link className="menu_hidden_navbar" to="/about"  onClick={setOpen}>A propos</Link>
                             <Link className="menu_hidden_navbar" to="/contact"  onClick={setOpen}>Contact</Link>
