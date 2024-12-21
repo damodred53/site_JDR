@@ -10,7 +10,6 @@ import Bin from "../assets/bin.png";
 import {Link} from "react-router-dom";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {getImageSrc} from "./Images";
 
 const SceneCard = () => {
 
@@ -148,7 +147,7 @@ const SceneCard = () => {
                 </div>
 
                 <div className="list_tags"></div>
-                <img className="image_card" alt="image_cyberpunk" src={getImageSrc(Item.imageUrl ?? "")}/>
+                <img className="image_card" alt="image_cyberpunk" src={Item.imageUrl ?? "/scenes/cyberpunk.jpg"}/>
                 <p className="description_card">{Item.description}</p>
                 <p className="explanation_card">{Item.explication}</p>
 
