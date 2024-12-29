@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/site_JDR.iml
+/.idea/vcs.xml
+/.idea/.gitignore

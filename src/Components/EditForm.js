@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import {useState} from "react";
 import {useParams, useNavigate} from "react-router-dom";
 import {toast} from 'react-toastify';
@@ -23,7 +23,7 @@ const EditForm = () => {
     /* Variable stockant les informations destinées à être envoyées en base de 
     données pour des modifications de celle-ci */
     let modifiedFormData = {};
-    let initialTitle;
+    const initialTitle = useRef();
 
 
     /* Fonction permettant d'aller chercher en base de données les informations existantes concernant 
@@ -34,18 +34,17 @@ const EditForm = () => {
                 const res = await fetch(`http://localhost:3000/api/scenes/${id}`);
                 const data = await res.json();
                 if (data) {
-                    console.log("voici les données que j'obtiens : ", data);
                     if (!data.email) {
                         data.email = "";
                     }
                     setSceneData(data);
-                    initialTitle = data.title;
+                    initialTitle.current = data.title;
                 }
             } catch (error) {
                 console.error('Erreur lors de la récupération des données :', error);
             }
         })();
-    }, []);
+    }, [id]);
 
 
     /* Fonction permettant d'envoyer en base de données à les modifications */
@@ -80,30 +79,26 @@ const EditForm = () => {
             description: sceneData.description,
             explication: sceneData.explication,
         };
-        console.log("modifiedFormData", modifiedFormData)
 
         postData();
-        console.log(modifiedFormData)
     };
 
     const handleChange = (event) => {
 
         const {name, value} = event.target
-        console.log("editing " + name + "with value " + value);
         setSceneData((prevData) => ({
             ...prevData,
             [name]: value,
         }))
     }
 
-    console.log(sceneData)
     return (
         <div className="main_edit_form">
             <div className="form_div_main_editscene">
                 <form className="full_formulaire" onSubmit={handleSubmit}>
                     <div className="suggestion_newscene">
-                        <h1>Vous pouvez modifier à présent cette scène :</h1>
-                        <h2> {initialTitle} </h2>
+                        <h1>Vous modifiez à présent cette scène :</h1>
+                        <h2> {initialTitle.current} </h2>
                     </div>
 
                     <div className="pseudonyme_and_text_div">
@@ -124,7 +119,7 @@ const EditForm = () => {
                         <div className="email_div">
                             <label htmlFor="email">Email</label>
                             <input required type="email" id="email" name="email" value={sceneData.email}
-                                   onChange={handleChange}></input>
+                                   onChange={handleChange} autoComplete="email" ></input>
                         </div>
 
                         <div className="selections">

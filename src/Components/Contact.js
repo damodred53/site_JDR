@@ -1,17 +1,13 @@
 import React from "react";
-import { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify';
+import {useState, useRef} from "react";
+import {useNavigate} from "react-router-dom";
+import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { verifyForm } from "../Services/Services";
+import {verifyForm} from "../Services/Services";
 
 
 const Contact = () => {
 
-    /*const [errorName, setErrorName] = useState(false);
-    const [errorMail, setErrorMail] = useState(false);
-    const [errorDescription, setErrorDescription] = useState(false);
-    const [errorScene, setErrorScene] = useState(false);*/
     const [error, setError] = useState({});
     const [selectedValue, setSelectedValue] = useState('Difficultés');
     const [selectedValue_2, setSelectedValue_2] = useState('Durée');
@@ -28,23 +24,21 @@ const Contact = () => {
 
     /* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
     const postData = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/api/send_email', {
+                method: 'POST',
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(formData)
+            });
 
-        /*if (errorDescription || errorMail || errorName || errorScene) {
-            console.log(errorName);
-            console.log(errorMail);
-            console.log(errorDescription);
-            console.log(errorScene);
-    
-        return*/
-
-
-        await fetch('http://localhost:3000/api/send_email', {
-            method: 'POST',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(formData)
-        })
-            .then(toast.success("mail envoyé à l'administrateur avec succès"))
-
+            if (response.ok) {
+                toast.success("Mail envoyé à l'administrateur avec succès");
+            } else {
+                toast.error("Erreur lors de l'envoi du mail");
+            }
+        } catch (error) {
+            toast.error("Erreur lors de l'envoi du mail");
+        }
     }
 
 
@@ -53,11 +47,6 @@ const Contact = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        /*setErrorName(false);
-        setErrorMail(false);
-        setErrorDescription(false);
-        setErrorScene(false);*/
 
         try {
             formData = {
@@ -74,20 +63,15 @@ const Contact = () => {
             throw error;
         }
 
-
         /* faire ici une fonction de vérification des données */
         let IsFormValid = verifyForm(formData);
-
-        console.log(IsFormValid);
 
         if (Object.keys(IsFormValid).length > 0) {
             console.log("Des erreurs ont été détectées dans le formulaire.");
             setError(IsFormValid)
-        }
-        else {
+        } else {
             setError(IsFormValid)
             console.log(error)
-            IsFormValid = {}
             postData();
             navigate("/");
         }
@@ -109,7 +93,8 @@ const Contact = () => {
     return (
         <div className="main_contact">
             <div className="projet_contact">
-                <h3 >Un projet ? Une idée ? Ou simplement une question ?<br />N'hésitez pas à me contacter pour me <br />proposer vos idées de scènes</h3>
+                <h3>Un projet ? Une idée ? Ou simplement une question ?<br/>N'hésitez pas à me contacter pour me <br/>proposer
+                    vos idées de scènes</h3>
             </div>
 
             <div className="form_div_main">
@@ -118,44 +103,46 @@ const Contact = () => {
                         <div className="name_title_name ">
                             <div className="name_title_name_text_div">
                                 <label htmlFor="pseudonyme">Pseudonyme</label>
-                                <input type="text" id="pseudonyme" name="pseudonyme" ></input>
+                                <input type="text" id="pseudonyme" name="pseudonyme" />
                             </div>
-                            { error.name &&
-                            <div >
-                                    <p className="name_title_name_error" ref={refName}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
-                            </div>
+                            {error.name &&
+                                <div>
+                                    <p className="name_title_name_error" ref={refName}>Veuillez remplir ce champ avant
+                                        l'envoi du formulaire</p>
+                                </div>
                             }
                         </div>
 
                         <div className="name_title_title ">
                             <div className="name_title_name_text_div">
                                 <label htmlFor="title">Titre de la scène</label>
-                                <input type="text" id="title" name="title" />
+                                <input type="text" id="title" name="title"/>
                             </div>
-                            { error.title &&
-                            <div >
-                                    <p className="name_title_name_error" ref={refTitle}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
-                            </div>
+                            {error.title &&
+                                <div>
+                                    <p className="name_title_name_error" ref={refTitle}>Veuillez remplir ce champ avant
+                                        l'envoi du formulaire</p>
+                                </div>
                             }
                         </div>
                     </div>
 
 
                     <div className="email_hard_duration_div">
-                        
-                            <div className="email_div" >
-                                <label htmlFor="email">Email</label>
-                                <input type="email" id="email" name="email"  ></input>
-                            </div>
-                            {error.mail &&
-                                <div>
-                                    <p className="name_title_title_error" ref={refEmail}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
-                                </div>
-                            }
-                        
-                        
 
-                        <div className="selections" >
+                        <div className="email_div">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" id="email" name="email" autoComplete="email" />
+                        </div>
+                        {error.mail &&
+                            <div>
+                                <p className="name_title_title_error" ref={refEmail}>Veuillez remplir ce champ avant
+                                    l'envoi du formulaire</p>
+                            </div>
+                        }
+
+
+                        <div className="selections">
                             <div>
                                 <select name="difficulties" value={selectedValue} onChange={handleSelectChange}>
                                     <option disabled hidden>Difficultés</option>
@@ -165,9 +152,9 @@ const Contact = () => {
                                 </select>
                             </div>
 
-                            <div className="selections_duration" >
-                                <select name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
-                                    <option disabled hidden >Durée</option>
+                            <div className="selections_duration">
+                                <select name="duration" value={selectedValue_2} onChange={handleSelectChange_2}>
+                                    <option disabled hidden>Durée</option>
                                     <option value="15">15 minutes ou moins</option>
                                     <option value="30">30 minutes ou moins</option>
                                     <option value="45">45 minutes ou moins</option>
@@ -180,13 +167,16 @@ const Contact = () => {
 
                     <div className="description_gameplay_contact_div">
                         <div className="under_div_scene">
-                            <div >
-                                <label htmlFor="under_div_scene_description-scene">Description de la scène <span className="under_div_scene_description-scene_span">( Vous pouvez ici poser votre question )</span></label>
-                                <textarea className="textarea" type="text" placeholder="Votre description ici..." id="description-scene" name="description-scene"  ></textarea>
+                            <div>
+                                <label htmlFor="under_div_scene_description-scene">Description de la scène <span
+                                    className="under_div_scene_description-scene_span">( Vous pouvez ici poser votre question )</span></label>
+                                <textarea className="textarea" placeholder="Votre description ici..."
+                                          id="under_div_scene_description-scene" name="under_div_scene_description-scene"></textarea>
                             </div>
                             {error.description &&
                                 <div>
-                                    <p className="name_title_title_error_big" ref={refDescription}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
+                                    <p className="name_title_title_error_big" ref={refDescription}>Veuillez remplir ce
+                                        champ avant l'envoi du formulaire</p>
                                 </div>
                             }
                         </div>
@@ -194,16 +184,17 @@ const Contact = () => {
                         <div className="under_div_scene">
                             <div>
                                 <label htmlFor="description-gameplay">Description du gameplay</label>
-                                <textarea className="textarea" type="text" placeholder="Votre explication du gameplay ici..." id="description-gameplay" name="description-gameplay"  ></textarea>
+                                <textarea className="textarea" placeholder="Votre explication du gameplay ici..."
+                                          id="description-gameplay" name="description-gameplay"></textarea>
                             </div>
 
 
                             {error.explication &&
                                 <div>
-                                    <p className="name_title_title_error_big" ref={refScene}>Veuillez remplir ce champ avant l'envoi du formulaire</p>
+                                    <p className="name_title_title_error_big" ref={refScene}>Veuillez remplir ce champ
+                                        avant l'envoi du formulaire</p>
                                 </div>
                             }
-
 
 
                             <div className="button_contact">
