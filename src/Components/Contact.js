@@ -20,12 +20,13 @@ const Contact = () => {
     let formData = {};
 
     const navigate = useNavigate();
+    const URL = process.env.REACT_APP_URL_SERVER;
 
 
     /* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
     const postData = async () => {
         try {
-            const response = await fetch('http://localhost:3000/api/send_email', {
+            const response = await fetch(`${URL}/api/send_email`, {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(formData)

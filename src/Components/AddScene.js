@@ -11,10 +11,12 @@ const Contact = () => {
     let formData = {};
     const navigate = useNavigate();
 
+    const URL = process.env.REACT_APP_URL_SERVER;   
+
     /* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
     const postData = async () => {
 
-        const response = await fetch('http://localhost:3000/api/scenes', {
+        const response = await fetch(`${URL}/api/scenes`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -65,7 +67,7 @@ const Contact = () => {
         <div className="main_contact">
             <div className="form_div_main_newscene">
                 <form className="full_formulaire" onSubmit={handleSubmit} method="POST"
-                      action="localhost:3000/api/scenes">
+                      >
 
                     <div className="suggestion_newscene">
                         <h1>Voici la page vous permettant de créer une nouvelle scène pour le Scenatorium </h1>

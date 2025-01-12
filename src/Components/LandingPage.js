@@ -12,6 +12,8 @@ const LandingPage = () => {
     const [research, updateResearch] = useState([]);
     const navigate = useNavigate();
 
+    const URL = process.env.REACT_APP_URL_SERVER;
+
     /* intégration du système de pagination via la librairie ReactPaginate */
     const cardsPerPage = 5;
     const pagesVisited = pageNumber * cardsPerPage;
@@ -35,7 +37,7 @@ const LandingPage = () => {
             setHasToken(true);
         }
 
-        fetch(`http://localhost:3000/api/scenes`)
+        fetch(`${URL}/api/scenes`)
             .then((res) => res.json())
             .then((data) => {
                 if (data) {

@@ -24,14 +24,14 @@ const EditForm = () => {
     données pour des modifications de celle-ci */
     let modifiedFormData = {};
     const initialTitle = useRef();
-
+    const URL = process.env.REACT_APP_URL_SERVER;
 
     /* Fonction permettant d'aller chercher en base de données les informations existantes concernant 
     la scène que l'on va modifier, les informations sont ensuite afficher dynamiquement à l'écran dans le formulaire*/
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch(`http://localhost:3000/api/scenes/${id}`);
+                const res = await fetch(`${URL}/api/scenes/${id}`);
                 const data = await res.json();
                 if (data) {
                     if (!data.email) {
@@ -51,7 +51,7 @@ const EditForm = () => {
     const postData = async () => {
         console.log(modifiedFormData)
         try {
-            await fetch(`http://localhost:3000/api/scenes/${id}`, {
+            await fetch(`${URL}/api/scenes/${id}`, {
                 method: 'PUT',
                 headers: {
                     "Content-Type": "application/json",

@@ -3,16 +3,20 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 
 
+
 const Admin = () => {
 
     let userData = {};
     let userLogin = {};
     const navigate = useNavigate();
 
+    const URL = process.env.REACT_APP_URL_SERVER;
+    console.log(URL);
+
      const postUserData = async () => {
         console.log(userData);
 
-            await fetch('http://localhost:3000/api/auth', {
+            await fetch(`${URL}/api/auth`, {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(userData)
@@ -30,7 +34,7 @@ const Admin = () => {
 
     const postLoginData = async () => {
 
-        const response = await fetch('http://localhost:3000/api/login', {
+        const response = await fetch(`${URL}/api/login`, {
             method: 'POST',
             headers: {"Content-Type": "application/json", "Authorization": "Bearer " + localStorage.getItem("tokenUser")},
             body: JSON.stringify(userLogin)

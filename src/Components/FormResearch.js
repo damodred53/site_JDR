@@ -13,6 +13,8 @@ const FormResearch = ({ research, updateResearch }) => {
     const [filteredElement, setFilteredElement] = useState([]);
     const [isFocused, setIsFocused] = useState(false);
 
+    const URL = process.env.REACT_APP_URL_SERVER;
+
     const handleFocus = () => {
         setIsFocused(true);
     };
@@ -30,7 +32,7 @@ const FormResearch = ({ research, updateResearch }) => {
     let formData = {};
     const researchData = async () => {
         console.log(formData)
-        await fetch('http://localhost:3000/api/scenes/search', {
+        await fetch(`${URL}/api/scenes/search`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)

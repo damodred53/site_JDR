@@ -14,6 +14,8 @@ const Contact = () => {
         explication: ''
     });
 
+    const URL = process.env.REACT_APP_URL_SERVER;
+
     // État pour les erreurs de formulaire
     const [errors, setErrors] = useState({});
 
@@ -46,7 +48,7 @@ const Contact = () => {
         }
 
         try {
-            await fetch('http://localhost:3000/api/send_email', {
+            await fetch(`${URL}/api/send_email`, {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(formData)
@@ -189,12 +191,3 @@ export default Contact;
 
 
 
-/*
-
- const handleGoUp = () => {
-        window.scrollTo(0,0)
-    }
-
-    */
-
-    /* method="PATCH" action="localhost:3000/api/idee_scene" */

@@ -20,6 +20,9 @@ const SceneCard = () => {
     /* récupération de la valeur de ID contenu dans l'URL via le hook useParams */
     const {id} = useParams();
 
+    const URL = process.env.REACT_APP_URL_SERVER;
+    console.log(URL);
+
     /* Fonction permettant d'aller chercher en base de données les informations sur la scène 
     les informations sont ensuite afficher dynamiquement à l'écran dans le formulaire*/
     useEffect(() => {
@@ -29,7 +32,7 @@ const SceneCard = () => {
             setHasToken(true);
         }
 
-        fetch(`http://localhost:3000/api/scenes/${id}`)
+        fetch(`${URL}/api/scenes/${id}`)
             .then(res => res.json())
             .then(data => {
                 if (data) {
@@ -49,7 +52,7 @@ const SceneCard = () => {
     /* fonction permettant de gérer la suppression d'une scène en base de donnée */
     const handleErase = async () => {
 
-        await fetch(`http://localhost:3000/api/scenes/${id}`, {
+        await fetch(`${URL}/api/scenes/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
