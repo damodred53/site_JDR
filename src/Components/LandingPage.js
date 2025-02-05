@@ -103,7 +103,7 @@ const LandingPage = () => {
                     {displayCards}
 
                     <ReactPaginate
-                        previousLabel={"Précédent."}
+                        previousLabel={"Précédent"}
                         nextLabel={"Suivant"}
                         pageCount={pageCount}
                         onPageChange={changePage}
