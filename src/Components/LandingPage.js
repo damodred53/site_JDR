@@ -9,7 +9,7 @@ const LandingPage = () => {
     const [data, setData] = useState([]);
     const [pageNumber, setPageNumber] = useState(0);
     const [hasToken, setHasToken] = useState(false);
-    const [research, updateResearch] = useState([]);
+    const [research, setResearch] = useState([]);
     const navigate = useNavigate();
 
     const URL = process.env.REACT_APP_URL_SERVER;
@@ -68,6 +68,11 @@ const LandingPage = () => {
         window.scrollTo(0, 550);
     };
 
+    const handleResearchUpdate = (newResearch) => {
+        setResearch(newResearch);
+        setPageNumber(0);
+    };
+
     
     return (
         
@@ -78,7 +83,7 @@ const LandingPage = () => {
 
                 <section className="search_scene">
                     <div className="search_div">
-                        <FormResearch research={research} updateResearch={updateResearch} />
+                        <FormResearch research={research} updateResearch={handleResearchUpdate} />
                         <section className="admin_space">
                             <div className="create_new_scene1 create_new_scene">
                                 <button
@@ -109,7 +114,10 @@ const LandingPage = () => {
                         onPageChange={changePage}
                         className="pagination_main"
                         activeClassName="paginationActive"
+                        disabledClassName="paginationDisabled"
                         onClick={handleGoUp}
+                        disableInitialCallback={true}
+                        forcePage={pageNumber}
                     />
                 </div>
             </div>
