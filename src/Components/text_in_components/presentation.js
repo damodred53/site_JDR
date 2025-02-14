@@ -12,7 +12,7 @@ const Presentation = () => {
                 sur ce site se composent de deux éléments : </p><br/><br/>
                 <ul className="presentation_list">
                     <li className="presentation_list_under_list_presentation">- Une description de la scène en question. </li>
-                    <li className="presentation_list_under_list_presentation">- Quelles logiques de jeu est présente dans cette scène et la rend originales.</li>
+                    <li className="presentation_list_under_list_presentation">- Quelles logiques de jeu sont présentes dans cette scène et la rendent originale.</li>
                 </ul> <br/><br/>
 
             <p>
