@@ -74,6 +74,7 @@ const Admin = () => {
                 <section className="main_connection">
 
                     <h1 className="title_connection">Connexion</h1>
+                    
                     <form className="form_authentification" onSubmit={handleLogin}>
                         
                             
@@ -86,10 +87,10 @@ const Admin = () => {
                                 <label htmlFor="passLogin">Mot de passe</label>
                                 <input type="password" placeholder="Votre mot de passe..." id="passLogin" name="passLogin" required></input>
                             </div>
-
-                            <button className="button_authentification">Connexion</button>
+                            
+                            <button className="button_authentification" disabled>Connexion</button>
                     </form>
-                    
+                    <p className="form_authentification" style={{color: "red", fontSize:"24px" , fontWeight:"bold", maxHeight:"2rem"}}>Service de connexion indisponible pour le moment</p>
                 </section>
 
                 <div className="vertical_bar"></div>
