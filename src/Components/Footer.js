@@ -11,6 +11,10 @@ const Footer = () => {
             navigate("/authentification");
         };
 
+    const handleNavigateMentionsLegales = () => {
+        navigate("/mentions_legales");
+    }
+
     return (
         <div id='footer_div' className='footer_div'>
             <h3 className='text_footer_div'>Site crée en octobre 2023</h3>
@@ -18,6 +22,9 @@ const Footer = () => {
             <div className="create_new_scene">
                 <button className="button_create_new_scene" onClick={handleClickAuthentification}>
                     Accès admin
+                </button>
+                <button className="button_mentions_légales" onClick={handleNavigateMentionsLegales}>
+                    Mentions légales
                 </button>
             </div>
         </div>

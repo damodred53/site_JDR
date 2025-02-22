@@ -29,14 +29,7 @@ export const verifyResearch = (formData) => {
     if (formData.name.trim() !== "")  {
         hasError = false;
     }
-    /*else if (formData.difficulty.trim() !== "") {
-        hasError = false;
-    }
-    else if (formData.duration.trim() !== "") {
-        hasError = false;
-    }*/
-
-
+    
     return hasError;
 }
 

@@ -88,7 +88,7 @@ const Admin = () => {
                                 <input type="password" placeholder="Votre mot de passe..." id="passLogin" name="passLogin" required></input>
                             </div>
                             
-                            <button className="button_authentification" disabled>Connexion</button>
+                            <button className="button_authentification" >Connexion</button>
                     </form>
                     <p className="form_authentification" style={{color: "red", fontSize:"24px" , fontWeight:"bold", maxHeight:"2rem"}}>Service de connexion indisponible pour le moment</p>
                 </section>
@@ -112,7 +112,7 @@ const Admin = () => {
                                 <input type="password" placeholder="Votre mot de passe..." id="passSuscribe" name="passSuscribe" ></input>
                             </div>
 
-                            <button className="button_authentification" value="submit" type="submit">Inscription</button>
+                            <button className="button_authentification" value="submit" type="submit" disabled>Inscription</button>
                     </form>
                     
 

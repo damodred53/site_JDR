@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Admin from "./Components/Admin";
 import "./Components/style.scss";
 import Footer from "./Components/Footer";
+import MentionsLegales from './Components/MentionsLegales';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -33,6 +34,7 @@ root.render(
                 <Route path='/edit/form/:id' element={<EditForm />} />
                 <Route path='/newscene' element={<AddScene />} />
                 <Route path='/authentification' element={<Admin />} />
+                <Route path='/mentions_legales' element={<MentionsLegales />} />
             </Routes>
 
             <Footer />

@@ -430,7 +430,11 @@ body {
        }
         
     }
-    
+
+    @media(max-width: 1300px) {
+        background-size: contain;
+        background-repeat: repeat-y;
+    }
 }
 
 
@@ -761,9 +765,7 @@ body {
                     font-size: 24px;
                     resize: none;
                 }
-                .textarea::placeholder {
-                    padding-top: 5%;
-                }
+
 
                 &_description-scene {
 
@@ -1555,7 +1557,7 @@ body {
     }
 }
 
-.button_create_new_scene {
+.button_create_new_scene, .button_mentions_légales {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     font-style: italic;
@@ -1566,4 +1568,18 @@ body {
     cursor: pointer;
     white-space: nowrap;
     padding: 1rem;
+}
+
+.button_mentions_légales {
+    margin-left: 2rem;
+}
+
+
+// page mentions légales //
+
+.mentions_legales {
+    height:90vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../assets/girl_warrior.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
