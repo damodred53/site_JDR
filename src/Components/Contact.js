@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {verifyForm} from "../Services/Services";
+import {postData} from "../Services/Services";
 
 
 const Contact = () => {
@@ -20,28 +21,7 @@ const Contact = () => {
     let formData = {};
 
     const navigate = useNavigate();
-    const URL = process.env.REACT_APP_URL_SERVER;
-
-
-    /* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
-    const postData = async () => {
-        try {
-            const response = await fetch(`${URL}/api/send_email`, {
-                method: 'POST',
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(formData)
-            });
-
-            if (response.ok) {
-                toast.success("Mail envoyé à l'administrateur avec succès");
-            } else {
-                toast.error("Erreur lors de l'envoi du mail");
-            }
-        } catch (error) {
-            toast.error("Erreur lors de l'envoi du mail");
-        }
-    }
-
+    
 
     /* fonction permettant de récupérer les informations contenus dans le formulaire de contact et de stocker les 
     informations dans formData avant son envoi en base de donnés */
@@ -73,11 +53,19 @@ const Contact = () => {
         } else {
             setError(IsFormValid)
             console.log(error)
-            postData();
-            navigate("/");
+
+            try {
+                const response = await postData(formData);
+                if (response) {
+                    navigate("/");
+                }
+                     
+            } catch (error) {
+                toast.error("Erreur lors de l'envoi du mail");
+                throw error;
+            }
         }
     }
-
 
     /* Ces deux constantes permettent de modifier le rendu visuel des valeurs dans les 
     deux menus déroulants du formulaire */

@@ -5,12 +5,10 @@ import Burger from "../assets/icon_burger.png";
 const Header = () => {
     const location = useLocation(); 
 
-
     const [accueilActive, setAccueilActive] = useState(false);
     const [aboutActive, setAboutActive] = useState(false);
     const [contactActive, setContactActive] = useState(false);
     const [opening, setOpening] = useState(false);
-
 
     useEffect(() => {
         switch (location.pathname) {
@@ -30,6 +28,11 @@ const Header = () => {
                 setContactActive(true);
                 break;
             case "/authentification":
+                setAccueilActive(false);
+                setAboutActive(false);
+                setContactActive(false);
+                break;
+            case "/mentions_legales":
                 setAccueilActive(false);
                 setAboutActive(false);
                 setContactActive(false);

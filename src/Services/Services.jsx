@@ -1,3 +1,4 @@
+import {toast} from 'react-toastify';
 
 export const verifyForm = (formData) => {
 
@@ -33,6 +34,32 @@ export const verifyResearch = (formData) => {
     return hasError;
 }
 
+/* Fonction permettant de proposer une idée de scène le formulaire se trouve dans Contact */
+export const postData = async (formData) => {
+    try {
+        const URL = process.env.REACT_APP_URL_SERVER;
+        console.log("URL du serveur:", URL);
+
+        const response = await fetch(`${URL}/api/send_email`, {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json(); // Essaye de lire la réponse JSON  
+
+        if (!response.ok) {
+            throw new Error(`Erreur serveur: ${response.status} - ${data.message || "Aucune info"}`);
+        }
+
+        toast.success("Mail envoyé à l'administrateur avec succès");
+        return data; // Retourne la réponse JSON  
+    } catch (error) {
+        toast.error("Erreur lors de l'envoi du mail");
+        console.error("Erreur fetch:", error);
+        return null;
+    }
+};
 
 
 
