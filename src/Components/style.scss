@@ -99,17 +99,20 @@ body {
                 display: block;
             }
 
-            @media (max-width: 500px) {
+            @media (max-width: 800px) {
                 width: 3rem;
                 height: 2.5rem;
+            }
+
+            @media (max-width: 500px) {
+                width: 2.2rem;
+                height: 2rem;
             }
         }
         
 
         .navbar_Header{
             text-decoration: none;
-
-            
         }
 
         .navbar_Header_list {
@@ -136,6 +139,20 @@ body {
         @media (max-width: 1540px) {
             justify-content: center;
             gap: 5%;
+        }
+
+        @media (max-width: 450px) {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 15%;
+            width: 100%;
+
+            h1 {
+                font-size: 25px;
+                
+            }
         }
 
         @media (max-width : 360px) {
@@ -169,6 +186,7 @@ body {
             @include center_column_flex_display;
             gap: 10%;
             padding-bottom: 10%;
+
         }
         
 
@@ -183,6 +201,13 @@ body {
     .invisible_navbar {
         display: none;
     }
+
+    @media (max-width: 450px) {
+        height : 8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }
 
 
@@ -192,8 +217,8 @@ body {
     font-size: 48px;
     padding: 0% 5% 2% 5%;
 
-    @media (max-width: 700px) {
-        font-size: 35px;
+    @media (max-width: 780px) {
+        font-size: 28px;
     }
 }
 
@@ -296,6 +321,14 @@ body {
 
         }
 
+        .form_research {
+
+
+            @media (max-width: 800px) {
+                padding: 2rem;
+            }
+        }
+
 
         .title_author_research {
             
@@ -388,15 +421,7 @@ body {
                     
                 }
 
-                @media (max-width:700px) {
-                    width: 100%;
-                    overflow: auto;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    row-gap: 1rem;
-                    margin-bottom: 1rem;
-                }
+                
 
                 @media(max-width:460px) {
                     width: 100%;
@@ -559,6 +584,7 @@ body {
         h3 {
             font-size: 25px;
             padding: 2rem;
+            
            } 
     }
 }
@@ -806,6 +832,7 @@ body {
         @media (max-width: 450px) {
             margin: 0%;
             margin-top: 2rem;
+            
         }
     }
 }
@@ -864,6 +891,9 @@ body {
             cursor: pointer;
         }
 
+        @media (max-width: 1000px) {
+            width: 50%;
+        }
         
     }
    
@@ -1535,6 +1565,8 @@ body {
 
 
 /* modification media queries */
+
+
 
 @media (max-width : 670px) {
     .pagination_main {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Burger from "../assets/icon_burger.png";
+import Burger from "../assets/icon_burger.svg";
 
 const Header = () => {
     const location = useLocation(); 
