@@ -4,6 +4,7 @@ import Image from "../assets/image_icone_loupe.svg";
 import Cross from "../assets/cross.svg";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import resetResearch from "../assets/restart_icon.svg";
 
 const FormResearch = ({ research, updateResearch }) => {
 
@@ -14,6 +15,8 @@ const FormResearch = ({ research, updateResearch }) => {
     const [isFocused, setIsFocused] = useState(false);
 
     const URL = process.env.REACT_APP_URL_SERVER;
+
+    let formData = {};
 
     const handleFocus = () => {
         setIsFocused(true);
@@ -29,7 +32,7 @@ const FormResearch = ({ research, updateResearch }) => {
         updateResearch(filteredElement)
     }, [filteredElement]);
 
-    let formData = {};
+
     const researchData = async () => {
         console.log(formData)
         await fetch(`${URL}/api/scenes/search`, {
@@ -77,6 +80,12 @@ const FormResearch = ({ research, updateResearch }) => {
         }
     }
 
+    const handleReset = () => {
+        setSelectedValue('');
+        setSelectedValue_2('');
+        setTitleResearch('');
+    }
+
     return (
         <div>
             <form className="form_research" onSubmit={handleSubmit}>
@@ -107,7 +116,6 @@ const FormResearch = ({ research, updateResearch }) => {
                             <div className="first_row_research">
 
                                 <select required name="difficulties" value={selectedValue}  onChange={handleSelectChange}>
-                                    {/* <option  disabled hidden>Difficultés</option> */}
                                     <option value="null">Aucune difficulté renseignée</option>
                                     <option value="facile">facile</option>
                                     <option value="intermédiaire">intermédiaire</option>
@@ -115,7 +123,6 @@ const FormResearch = ({ research, updateResearch }) => {
                                 </select>
 
                                 <select required name="duration" value={selectedValue_2} onChange={handleSelectChange_2} >
-                                    {/* <option  disabled hidden >Durée</option> */}
                                     <option value="null">Aucune durée renseignée</option>
                                     <option value="15">environ 15 minutes</option>
                                     <option value="30">environ 30 minutes </option>
@@ -129,6 +136,10 @@ const FormResearch = ({ research, updateResearch }) => {
                                 <button type="submit">
                                     Lancer la recherche <img alt="icone de loupe" src={Image} />
                                 </button> 
+
+                                <button className="button_research_research" onClick={handleReset}> 
+                                <p>Réinitialiser</p> <img src={resetResearch} alt="icone de reset" />
+                                </button>
                             </div>  
                             
                         </div>

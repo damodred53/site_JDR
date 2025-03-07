@@ -405,12 +405,13 @@ body {
 
             .button_research {
                 padding-right: 20%;
+                display: flex;
+                column-gap: 1rem;
                 
                 button {
                     @include center_row_flex_display;
                     height: 40px;
                     font-weight: bold;
-                    font-size: 20px;
                     gap: 10%;
                     white-space: nowrap;
                     padding-left: 10%;;
@@ -438,7 +439,11 @@ body {
 }
 
 
+.button_research_research {
 
+    width : 8rem;
+
+}
 
 
 
