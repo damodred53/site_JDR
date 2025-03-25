@@ -34,7 +34,6 @@ const FormResearch = ({ research, updateResearch }) => {
 
 
     const researchData = async () => {
-        console.log(formData)
         await fetch(`${URL}/api/scenes/search`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
@@ -75,8 +74,6 @@ const FormResearch = ({ research, updateResearch }) => {
     const handleErase = () => {
         if (titleResearch !== '') {
             setTitleResearch('');
-        } else {
-            console.log("je suis vide déjà")
         }
     }
 

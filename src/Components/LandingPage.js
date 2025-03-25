@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Introduction from "./text_in_components/introduction";
 import FormResearch from "./FormResearch";
 import Card from "./Card";
@@ -11,6 +11,7 @@ const LandingPage = () => {
     const [hasToken, setHasToken] = useState(false);
     const [research, setResearch] = useState([]);
     const navigate = useNavigate();
+    const cardsAreaRef = useRef(null);
 
     const URL = process.env.REACT_APP_URL_SERVER;
 
@@ -25,7 +26,7 @@ const LandingPage = () => {
         <Card id={_id} key={_id} titre={title} auteur={pseudonyme} imageUrl={imageUrl} />
     ));
 
-    const pageCount = Math.ceil(activeData.length / cardsPerPage);
+    const pageCount = Math.max(1, Math.ceil(activeData.length / cardsPerPage));
     const changePage = ({ selected }) => {
         setPageNumber(selected);
     };
@@ -65,7 +66,9 @@ const LandingPage = () => {
     };
 
     const handleGoUp = () => {
-        window.scrollTo(0, 550);
+        if (cardsAreaRef.current) {
+            cardsAreaRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     const handleResearchUpdate = (newResearch) => {
@@ -104,7 +107,7 @@ const LandingPage = () => {
                         </section>
                     </div>
                 </section>
-                <div className="cards_area">
+                <div className="cards_area" ref={cardsAreaRef}>
                     {displayCards}
 
                     <ReactPaginate

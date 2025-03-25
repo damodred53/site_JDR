@@ -49,7 +49,6 @@ const EditForm = () => {
 
     /* Fonction permettant d'envoyer en base de données à les modifications */
     const postData = async () => {
-        console.log(modifiedFormData)
         try {
             await fetch(`${URL}/api/scenes/${id}`, {
                 method: 'PUT',

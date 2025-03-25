@@ -16,6 +16,7 @@ import Admin from "./Components/Admin";
 import "./Components/style.scss";
 import Footer from "./Components/Footer";
 import MentionsLegales from './Components/MentionsLegales';
+import ScrollToTop from "./Components/ScrollToTop";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -24,6 +25,7 @@ root.render(
     <React.StrictMode>
 
         <Router>
+            <ScrollToTop />
             <Header />
             <Routes>
                 <Route path='/' element={<LandingPage />} />
