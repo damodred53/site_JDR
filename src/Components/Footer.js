@@ -17,7 +17,7 @@ const Footer = () => {
     }
 
     return (
-        <div className=' footer'>
+        <div className='footer'>
             <h3 className='text_footer_div footer_title'>Site crée en février 2025</h3>
             <h3 className='text_footer_div footer_title'>Auteur : Florent Guyard & Simon Lefort</h3>
             <div className="create_new_scene footer_buttons_zone">

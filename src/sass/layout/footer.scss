@@ -3,21 +3,21 @@
 .footer {
     
     @include center_row_flex_display;
-    // font-family: $Dancing_script;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+
     width: 100%;
     height: 150px;
     font-size: 24px;
     background-color: black;
     gap: 5%;
 
-    @media (max-width:850px ) {
+    @media (max-width:1150px ) {
         @include center_column_flex_display;
-        margin-top: 2rem;
+        margin-top: 4rem;
         row-gap: 1rem;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 20px;
     }
        
         &_title {
@@ -25,8 +25,6 @@
         }
 
         &_buttons_zone {
-            // @include center_column_flex_display;
-            width: 100%;
             padding-top: 2%;
             padding-bottom: 2%;
 
