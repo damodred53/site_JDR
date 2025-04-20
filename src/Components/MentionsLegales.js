@@ -1,7 +1,9 @@
 import React from "react";
+import Footer from "../Components/Footer";
 
 const MentionsLegales = () => {
   return (
+    <>
     <div className="mentions_legales">
       <h1 className="title mentions_legales_title">Mentions légales</h1>
       <p className="date mentions_legales_paragraph">En vigueur au 22/02/2025</p>
@@ -54,6 +56,11 @@ const MentionsLegales = () => {
         Rédigé sur <a href="http://legalplace.fr">legalplace.fr</a>
       </p>
     </div>
+
+    <Footer />
+
+    </>
+    
   );
 };
 

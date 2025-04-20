@@ -2,6 +2,7 @@ import React from "react";
 import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
+import Footer from "../Components/Footer";
 
 const Contact = () => {
 
@@ -64,6 +65,8 @@ const Contact = () => {
 
 
     return (
+
+        <>
         <div className="main_contact">
             <div className="form_div_main_newscene">
                 <form className="full_formulaire" onSubmit={handleSubmit} method="POST"
@@ -135,6 +138,10 @@ const Contact = () => {
                 </form>
             </div>
         </div>
+
+        <Footer />
+
+        </>
 
     )
 }

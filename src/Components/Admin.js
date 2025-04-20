@@ -1,6 +1,7 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
 import {toast} from 'react-toastify';
+import Footer from "../Components/Footer";
 
 
 const Admin = () => {
@@ -66,6 +67,8 @@ const Admin = () => {
 
     return (
 
+        <>
+
         <div className="main_authentification">
 
             <section className="main_connection">
@@ -123,6 +126,9 @@ const Admin = () => {
             </section>
 
         </div>
+
+        <Footer />
+        </>
     )
 }
 

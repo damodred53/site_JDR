@@ -4,6 +4,7 @@ import {useParams, useNavigate} from "react-router-dom";
 import {toast} from 'react-toastify';
 import {useEffect} from "react";
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "../Components/Footer";
 
 const EditForm = () => {
 
@@ -92,6 +93,7 @@ const EditForm = () => {
     }
 
     return (
+        <>
         <div className="main_edit_form">
             <div className="form_div_main_editscene">
                 <form className="full_formulaire" onSubmit={handleSubmit}>
@@ -165,6 +167,9 @@ const EditForm = () => {
                 </form>
             </div>
         </div>
+
+        <Footer  />
+        </>
     )
 }
 

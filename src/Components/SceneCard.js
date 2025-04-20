@@ -10,6 +10,8 @@ import Bin from "../assets/bin.png";
 import {Link} from "react-router-dom";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Footer from "../Components/Footer";
+
 
 const SceneCard = () => {
 
@@ -62,6 +64,8 @@ const SceneCard = () => {
     }
 
     return (
+
+        <>
         <div className="main_card">
       
             <div className={`${isModalOpen ? "myModal_warning_delete" : "hidden_warning_delete"}`}>
@@ -120,6 +124,9 @@ const SceneCard = () => {
 
             </div>
         </div>
+
+        <Footer />
+        </>
     )
 }
 

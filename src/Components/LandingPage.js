@@ -4,6 +4,7 @@ import FormResearch from "./FormResearch";
 import Card from "./Card";
 import ReactPaginate from "react-paginate";
 import { useNavigate } from "react-router-dom";
+import Footer from "../Components/Footer";
 
 const LandingPage = () => {
     const [data, setData] = useState([]);
@@ -123,6 +124,8 @@ const LandingPage = () => {
                         forcePage={pageNumber}
                     />
                 </div>
+
+                <Footer />
             </div>
         
     );

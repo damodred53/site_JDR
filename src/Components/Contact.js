@@ -5,6 +5,7 @@ import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {verifyForm} from "../Services/Services";
 import {postData} from "../Services/Services";
+import Footer from "../Components/Footer";
 
 
 const Contact = () => {
@@ -80,6 +81,7 @@ const Contact = () => {
 
 
     return (
+        <>
         <div className="main_contact">
             <div className="projet_contact">
                 <h3>Un projet ? Une idée ? Ou simplement une question ?<br/>N'hésitez pas à me contacter pour me <br/>proposer
@@ -195,7 +197,13 @@ const Contact = () => {
 
                 </form>
             </div>
+
+            
+            
         </div>
+
+        <Footer />
+        </>
 
     )
 }

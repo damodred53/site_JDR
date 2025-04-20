@@ -16,7 +16,7 @@ import Admin from "./Components/Admin";
 
 import "./main.scss";
 import "./Components/style.scss";
-import Footer from "./Components/Footer";
+
 import MentionsLegales from './Components/MentionsLegales';
 import ScrollToTop from "./Components/ScrollToTop";
 
@@ -41,7 +41,7 @@ root.render(
                 <Route path='/mentions_legales' element={<MentionsLegales />} />
             </Routes>
 
-            <Footer />
+            
         </Router>
         
 
