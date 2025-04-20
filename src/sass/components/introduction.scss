@@ -1,0 +1,8 @@
+.text_presentation {
+    font-size: 48px;
+    padding: 0% 5% 2% 5%;
+
+    @media (max-width: 780px) {
+        font-size: 28px;
+    }
+}

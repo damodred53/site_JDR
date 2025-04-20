@@ -1,0 +1,146 @@
+.header {
+    color: white;
+    height: 150px;
+    background-color:black;
+    // font-family: $Dancing_script;
+
+    .home_title{
+        text-decoration: none;
+        color: white;
+    }
+
+    .welcome_and_navbar{
+        height: 100%;
+        font-style: italic;
+        @include space_row_flex_display;
+        h1 {
+            font-size: 60px;
+            @media (max-width: 780px) {
+                font-size: 35px;    
+            }
+        }
+        @media (max-width: 450px) {
+            @include center_row_flex_display;
+            padding: 5%;
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        .burger_header {
+            width: 70px;
+            height: 50px;
+            display: none;
+
+            @media (max-width: 1300px) {
+                display: block;
+            }
+
+            @media (max-width: 800px) {
+                width: 3rem;
+                height: 2.5rem;
+            }
+
+            @media (max-width: 500px) {
+                width: 2.2rem;
+                height: 2rem;
+            }
+        }
+        
+
+        .navbar_Header{
+            text-decoration: none;
+        }
+
+        .navbar_Header_list {
+            @include center_row_flex_display;
+            gap: 20%;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 34px;
+            white-space: nowrap;
+            list-style-type: none;
+            li a{
+                text-decoration: none;
+                color: white;
+            }
+            li a:visited {
+                color: white;
+            }   
+
+            @media (max-width: 1300px) {
+                display: none;
+            }
+           
+        }
+        @media (max-width: 1540px) {
+            justify-content: center;
+            gap: 5%;
+        }
+
+        @media (max-width: 450px) {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 15%;
+            width: 100%;
+
+            h1 {
+                font-size: 25px;
+                
+            }
+        }
+
+        @media (max-width : 360px) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+
+            .home_title {
+                font-size: 25px;
+                width: 20%;
+            }
+        }
+    }
+    .underline {
+        @include underline;
+    }
+
+    .opened_navbar {
+        @include space_row_flex_display;
+        position: absolute;
+        top: 150px;
+        left: 0px;
+        height: 150px;
+        width: 100%;
+        z-index: 1000;
+        background-color: rgba(0, 0, 0, 0.7);
+        border-bottom: red 5px solid;
+
+        @media (max-width:450px) {
+            @include center_column_flex_display;
+            gap: 10%;
+            padding-bottom: 10%;
+
+        }
+        
+
+        .menu_hidden_navbar {
+            color: white;
+            font-size: 40px;
+            text-decoration: none;
+        }
+    }
+    .invisible_navbar {
+        display: none;
+    }
+
+    @media (max-width: 450px) {
+        height : 8rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

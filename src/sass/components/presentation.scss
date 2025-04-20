@@ -1,0 +1,10 @@
+.presentation {
+
+    &_list {
+        list-style: none;
+    
+        &_under_list_presentation {
+            text-align: left;
+        }
+    }
+}
