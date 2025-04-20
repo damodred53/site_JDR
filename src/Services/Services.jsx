@@ -38,8 +38,6 @@ export const verifyResearch = (formData) => {
 export const postData = async (formData) => {
     try {
         const URL = process.env.REACT_APP_URL_SERVER;
-        console.log("URL du serveur:", URL);
-
         const response = await fetch(`${URL}/api/send_email`, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
@@ -49,7 +47,9 @@ export const postData = async (formData) => {
         const data = await response.json(); // Essaye de lire la réponse JSON  
 
         if (!response.ok) {
-            throw new Error(`Erreur serveur: ${response.status} - ${data.message || "Aucune info"}`);
+            toast.error(`Erreur serveur: ${response.status} - ${data.message || "Aucune info"}`);
+            console.error(`Erreur serveur: ${response.status} - ${data.message || "Aucune info"}`);
+            return null;
         }
 
         toast.success("Mail envoyé à l'administrateur avec succès");

@@ -21,7 +21,6 @@ const SceneCard = () => {
     const {id} = useParams();
 
     const URL = process.env.REACT_APP_URL_SERVER;
-    console.log(URL);
 
     /* Fonction permettant d'aller chercher en base de données les informations sur la scène 
     les informations sont ensuite afficher dynamiquement à l'écran dans le formulaire*/
