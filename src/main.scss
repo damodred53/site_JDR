@@ -14,11 +14,18 @@
 @import './src/sass/pages/about.scss';
 @import './src/sass/pages/error.scss';
 @import './src/sass/pages/landing_page.scss';
+@import './src/sass/pages/contact.scss';
+@import './src/sass/pages/scenePage.scss';
+@import './src/sass/pages/editScenePage.scss';
 
 // import the main.scss components
 @import './src/sass/components/pagination.scss';
 @import './src/sass/components/warningDeleteModal.scss';
 @import './src/sass/components/introduction.scss';
+@import './src/sass/components/sceneCard.scss';
+@import './src/sass/components/editSceneForm';
+@import './src/sass/components/instructionEditDeleteScene.scss';
+@import './src/sass/components/card.scss';
 
 // import the main.scss layout
 @import './src/sass/layout/header.scss';

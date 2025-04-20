@@ -1,0 +1,83 @@
+.scene_card_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: white 1px solid;
+    width: 40%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+
+    @media(max-width:1300px) {
+        width: 90%;
+    }
+    
+    .title_scene_card {
+        margin: 2% 0% 2% 0%;
+        border: white 1px solid;
+        padding: 1% 12% 1% 12%;
+        border-radius: 10px;
+
+        @media (max-width:610px) {
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+    }
+
+    .duration_modification_author_card {
+        @include space_row_flex_display;
+        margin-bottom: 3%;
+        width: 100%;
+
+        @media (max-width: 1700px) {
+            @include center_column_flex_display;
+            padding-top: 1rem;
+            row-gap: 1rem;
+            
+        }
+
+        .duration_card, .date_modification_card, .author_card {
+            display: flex;
+            justify-content: space-between;
+            gap: 5%;
+            white-space: nowrap;
+        }
+    }
+
+    .list_tags {
+        border-radius: 10px;
+        background-color: green;
+        height: 60px;
+        width: 90%;
+        margin-bottom: 3%;
+    }
+
+    .image_card {
+        border-radius: 10px;
+        width: 90%;
+        height: 180px;
+        object-fit: cover;
+        margin-bottom: 5%;
+    }
+
+    .description_card {
+        width: 90%;
+        font-size: 24px;
+        font-style: italic;
+        font-weight: bold;
+        border-bottom: white 2px solid;
+        padding-bottom: 5%;
+        line-height: 1.5em;
+    }
+
+    .explanation_card {
+        width: 90%;
+        font-size: 24px;
+        font-style: italic;
+        font-weight: bold;
+        margin-bottom: 5%;
+        margin-top: 5%;
+        line-height: 1.5em; 
+    }
+}

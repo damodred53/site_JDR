@@ -14,3 +14,31 @@ body {
 h1, h2, h3, h4, h5, h6, p, label, input, button, a, div{
     font-family: $Dancing_script;
 }
+
+/* autres modifications media queries */
+
+@media (max-width : 670px) {
+    .pagination_main {
+        width: 75%!important;
+    }
+}
+
+@media (max-width : 500px) {
+
+    .div_presentation {
+        background-size: contain;
+        background-repeat: repeat-y;
+    }
+    
+
+    .text_presentation {
+        padding: 3rem;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    .admin_space {
+        display: none;
+        flex-direction: column!important;
+    }
+}

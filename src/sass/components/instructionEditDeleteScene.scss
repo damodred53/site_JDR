@@ -1,0 +1,33 @@
+
+.instruction_auth_scene_card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: absolute;
+    right: 200px;
+    top: 200px;
+    border: white 1px solid;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2%;
+    gap: 15%;
+    height: 20%;
+
+    @media(max-width: 1200px) {
+        right: 100px;
+    }
+
+    @media(max-width: 680px) {
+        right: 70px;
+        height: fit-content;
+    }
+
+
+    .material_symbols_outlined{
+        cursor: pointer;
+        max-width: 150px;
+        img {
+            height: 50px;
+            width: 50px;
+        }
+    }
+}

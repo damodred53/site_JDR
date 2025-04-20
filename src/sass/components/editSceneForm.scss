@@ -1,0 +1,75 @@
+.form_div_main_editscene {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: white 1px solid;
+    border-radius: 10px;
+    width: 75%;
+    margin-left: 15%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+
+    @include center_column_flex_display;
+
+    @media (max-width:1200px) {
+        width: 90%;
+        margin-left:5%;
+    }
+
+    .suggestion_newscene {
+        // font-family: $Dancing_script;
+        font-weight: bold;
+        padding-bottom: 5%;
+        padding-left: 3%;
+        font-size: 24px;
+    }
+
+    .description_gameplay_contact_div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        font-size: 24px;
+
+        &_under_div {
+            width: 40%;
+        }
+
+        .under_div_scene {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding-bottom: 7%;
+            label {
+                margin-bottom: 2%;
+
+            }
+            textarea {
+                width: 100%;
+                height: 250px;
+                border-radius: 10px;
+                padding-left: 5%;
+                font-style: italic;
+                font-weight: bold;
+                padding-top: 2%;
+                // font-family: $Dancing_script;
+                font-size: 24px;
+            }
+            .textarea::placeholder {
+                padding-top: 5%;
+            }
+
+        }
+    }
+    .button_contact {
+        width: 100%;
+        text-align: center;
+        padding-top: 3%;
+        margin-bottom: 3rem;
+        button {
+            width: 20%;
+            height: 45px;
+            font-weight: bold;
+            border-radius: 10px;
+        }
+    }
+
+}

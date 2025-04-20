@@ -1,4 +1,25 @@
 
+
+/* Le composant WarningDelete */
+
+.myModal_warning_delete{
+    @include center_column_flex_display;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.7);
+    
+    h1 {
+        font-size: 50px;
+        white-space: nowrap;
+    }
+
+}
+
+
+
 .warning_delete {
     border: white 1px solid;
     padding : 3%;
