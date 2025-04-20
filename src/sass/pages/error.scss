@@ -1,0 +1,24 @@
+
+.main_error {
+    color: $color_text;
+    @include center_column_flex_display;
+    height: 900px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../assets/girl_warrior.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    // font-family: $Dancing_script;
+    
+
+    .border_error {
+        border: 1px white solid;
+        padding: 3%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .error_404 {
+        font-size:250px;
+    }
+    .text_error {
+        font-size: 3em;
+    }
+}

@@ -1,6 +1,6 @@
 /* Mes imports */
 
-@import url('https://fonts.googleapis.com/css2?family=Agdasima&family=Dancing+Script:wght@400;500;600;700&family=Tektur&family=Yusei+Magic&display=swap');
+
 
 /*Déclaration de mes variables Sass */
 
@@ -48,16 +48,7 @@ $color_error : red;
     border-bottom: white 1px solid;
 }
 
-/* règles globales */
 
-*{
-    margin: 0;
-}
-body {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-color: black;
-}
 
 /* Le composant Header */
 
@@ -65,7 +56,7 @@ body {
     color: $color_text;
     height: 150px;
     background-color:black;
-    font-family: $Dancing_script;
+    // font-family: $Dancing_script;
 
     .home_title{
         text-decoration: none;
@@ -194,8 +185,6 @@ body {
             color: $color_text;
             font-size: 40px;
             text-decoration: none;
-
-            
         }
     }
     .invisible_navbar {
@@ -252,7 +241,7 @@ body {
        .search_div {
         height: 100%;
         width: 100%;
-
+        
 
         form {
             @include center_row_flex_display;
@@ -287,21 +276,6 @@ body {
             @include space_row_flex_display;
         }
 
-
-
-        .create_new_scene{
-            width: 100%;
-            @include center_column_flex_display;
-            padding-top: 2%;
-            padding-bottom: 2%;
-           
-
-        
-        .button_create_new_scene:hover {
-            color: green;
-            border: green 1px solid;
-        }
-
         
         .deconnexion:hover {
             color: red;
@@ -313,13 +287,13 @@ body {
             @include center_column_flex_display;
             padding-top: 2%;
             padding-bottom: 2%;
-            
         }
+
         .toggleDisplay{
             display: none;
         }
 
-        }
+        
 
         .form_research {
 
@@ -458,58 +432,16 @@ body {
     }
 
     @media(max-width: 1300px) {
-        background-size: contain;
-        background-repeat: repeat-y;
+            background-size : contain;
+            background-repeat : repeat-y;
+        }
     }
-}
 
 
 .button_research_research {
 
     width : 8rem;
 
-}
-
-
-
-/* Le composant About */
-
-.about_text_presentation {
-    color: $color_text;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    font-style: italic;
-    font-weight: bold;
-    background-image: url('../assets/foret_fantasy_1.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-    
-
-    .about_text_presentation_text {
-    font-size: 40px;
-    width: 50%;
-    background-color: rgba(0, 0, 0, 0.7);
-    border : $color_text 2px solid;
-    border-radius: $border_radius;
-    padding: 1% 2% 1% 2%;
-    margin: 2% ;
-    box-shadow: 
-    rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, 
-    rgba(0, 0, 0, 0.12) 0px 4px 6px, 
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, 
-    rgba(0, 0, 0, 0.09) 0px -3px 5px;
-
-    @media (max-width: 960px) {
-        width: 100%;
-    }
-
-    @media (max-width: 550px) {
-        font-size: 30px;
-    }
-    }
 }
 
 /* Le composant présentation */
@@ -792,7 +724,7 @@ body {
                     font-style: italic;
                     font-weight: bold;
                     padding-top: 2%;
-                    font-family: $Dancing_script;
+                    // font-family: $Dancing_script;
                     font-size: 24px;
                     resize: none;
                 }
@@ -841,10 +773,7 @@ body {
     @include space_row_flex_display;
     width: 100%;
                 select {
-                   /* height: 40px;
-                    font-weight: bold;
-                    border-radius: $border_radius;*/
-
+                   
                     @media (max-width: 1280px) {
                         width: 75%;
                         overflow: auto;
@@ -852,53 +781,6 @@ body {
                     }
                 }
 }
-
-
-/* Le composant card */
-.cards_area {
-    width: 100%;
-    @include center_column_flex_display;
-
-    .pagination_main {
-        @include space_row_flex_display;
-        border: 1px white solid;
-        background-color: rgba(0, 0, 0, 0.4);
-        border-radius: $border_radius;
-        color:$color_text;
-        width: 30%;
-        font-size: 30px;
-        padding: 2%;
-        font-family: $Dancing_script;
-        font-weight: bold;
-        margin-top: 2%;
-
-        .paginationActive{
-            color: red;
-        }
-
-        .paginationDisabled {
-            pointer-events: none;
-            opacity: 0.5;
-        }
-
-        :hover {
-            color: red;
-            text-decoration: underline;
-        }
-
-        li{
-            list-style: none;
-            cursor: pointer;
-        }
-
-        @media (max-width: 1000px) {
-            width: 50%;
-        }
-        
-    }
-   
-}
-
 
 .div_main_card {
     color: $color_text;
@@ -957,7 +839,7 @@ body {
             padding-top: 2.5rem;
             gap: 20%;
             font-size: 40px;
-            font-family: $Dancing_script;
+            // font-family: $Dancing_script;
             font-weight: bold;
             white-space: nowrap;
             text-decoration: none;
@@ -1139,29 +1021,7 @@ body {
 
 /* Le composant Erreur */
 
-.main_error {
-    color: $color_text;
-    @include center_column_flex_display;
-    height: 900px;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/girl_warrior.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: $Dancing_script;
-    
 
-    .border_error {
-        border: 1px white solid;
-        padding: 3%;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .error_404 {
-        font-size:250px;
-    }
-    .text_error {
-        font-size: 3em;
-    }
-}
 
 /* Le composant WarningDelete */
 
@@ -1181,28 +1041,7 @@ body {
 
     
 }
-.warning_delete {
-    border: white 1px solid;
-    padding : 3%;
-    font-family: $Dancing_script;
 
-    .answer_yes_no {
-        @include space_row_flex_display;
-        align-items: center;
-        height: 100%;
-        font-size: 35px;
-
-        p{
-            cursor: pointer;
-            color: $color_text;
-        }
-    }
-}
-
-
-.hidden_warning_delete {
-    display: none;
-}
 
 .form_div_main_editscene {
     background-color: rgba(0, 0, 0, 0.6);
@@ -1221,7 +1060,7 @@ body {
     }
 
     .suggestion_newscene {
-        font-family: $Dancing_script;
+        // font-family: $Dancing_script;
         font-weight: bold;
         padding-bottom: 5%;
         padding-left: 3%;
@@ -1256,7 +1095,7 @@ body {
                 font-style: italic;
                 font-weight: bold;
                 padding-top: 2%;
-                font-family: $Dancing_script;
+                // font-family: $Dancing_script;
                 font-size: 24px;
             }
             .textarea::placeholder {
@@ -1295,7 +1134,7 @@ body {
     }
 
     .suggestion_newscene {
-        font-family: $Dancing_script;
+        // font-family: $Dancing_script;
         font-weight: bold;
         padding-bottom: 5%;
         padding-left: 3%;
@@ -1330,7 +1169,7 @@ body {
                     font-style: italic;
                     font-weight: bold;
                     padding-top: 2%;
-                    font-family: $Dancing_script;
+                    // font-family: $Dancing_script;
                     font-size: 24px;
                 }
                 .textarea::placeholder {
@@ -1353,148 +1192,6 @@ body {
         }
     
 }
-
-/* Le composant connexion authentification */
-
-.main_authentification {
-    @include space_row_flex_display;
-    color: $color_text;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/girl_warrior.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    @media (max-width: 560px) {
-        flex-direction: column;
-        background-repeat: repeat-y;
-        background-size: contain;
-        justify-content: flex-start;
-        align-items: center;
-    }
-    .vertical_bar {
-        background-color: white;
-        width: 1px;
-        height: 780px;
-
-        @media (max-width: 560px) {
-            display: none;
-        }
-    }
-    
-    .main_connection, .main_signing_up {
-        width: 90%;
-        height: 850px;
-        @include center_column_flex_display;
-
-        @media (max-width: 560px) {
-            justify-content: flex-start;
-            height: auto;
-        }
-
-        .title_connection {
-            font-family: $Dancing_script;
-            padding-bottom: 5%;
-            font-weight: bold;
-            font-size: 40px;
-            text-transform: uppercase;
-        }
-
-        .button_authentification {
-            border-radius: $border_radius;
-            color: $color_text;
-            margin-top: 5%;
-            height: 45px;
-            font-family: $Dancing_script;
-            width: fit-content;
-            background-color: rgba(0, 0, 0, 0.6);
-            border: white 1px solid;
-            font-size: 24px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-    
-        .button_authentification:hover {
-            color: green;
-            border: green 1px solid;
-        }
-
-        .form_authentification {
-            border-radius: $border_radius;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: rgba(0, 0, 0, 0.6);
-            height: 40%;
-            width: 70%;
-            border: white 1px solid;
-            gap: 15%;
-
-            @media (max-width: 560px) {
-                width: 100%;
-                padding-top: 2rem;
-                padding-bottom: 2rem;
-                
-            }
-
-
-            .under_div {
-                @include center_row_flex_display;
-                gap: 15%;
-                white-space: nowrap;
-                height: auto;
-                font-size: 34px;
-                font-family: $Dancing_script;
-                text-transform:capitalize;
-                width: 80%;
-
-                @media (max-width: 930px) {
-                    flex-direction: column;
-                    align-items: flex-start;
-                    font-size: 18px;
-                }
-
-                label {
-                    width: 50%;
-                }
-
-                input {
-                    height: 40px;
-                    font-style: italic;
-                    width: 100%;
-                    padding-left: 5%;
-                    border-radius: $border_radius;
-                }
-            }
-        }
-    }
-}
-
-
-
-
-/* Le composant Footer */
-
-.footer_div {
-    font-family: $Dancing_script;
-    @include center_row_flex_display;
-    width: 100%;
-    height: 150px;
-    font-size: 24px;
-    background-color: black;
-    gap: 5%;
-
-    @media (max-width:850px ) {
-        @include center_column_flex_display;
-        margin-top: 2rem;
-        row-gap: 1rem;
-    }
-   
-    
-    .text_footer_div {
-        color: $color_text;
-    }
-}
-
 
 .email_hard_duration_div {
     display: flex;
@@ -1594,64 +1291,3 @@ body {
     }
 }
 
-.button_create_new_scene, .button_mentions_légales {
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-style: italic;
-    width: fit-content;
-    height: auto;
-    font-size: 24px;
-    border: white 1px solid;
-    cursor: pointer;
-    white-space: nowrap;
-    padding: 1rem;
-}
-
-.button_mentions_légales {
-    margin-left: 2rem;
-}
-
-
-// page mentions légales //
-
-.mentions_legales {
-    height:100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../assets/girl_warrior.webp');
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-bottom: 3rem;
-    h1 {
-        font-size: 50px;
-        font-family: $Dancing_script;
-        font-weight: bold;
-        text-align: center;
-        padding-top: 5%;
-        padding-bottom: 3rem;
-    }
-
-    h2 {
-        font-size: 40px;
-        font-family: $Dancing_script;
-        font-weight: bold;
-        text-align: center;
-        padding-top: 5%;
-    }
-
-    p {
-        font-size: 35px;
-        font-family: $Dancing_script;
-        font-weight: bold;
-        text-align: center;
-    }
-
-    a {
-        color: white;
-        font-size: 35px;
-        font-family: $Dancing_script;
-        font-weight: bold;
-        text-align: center;
-    }
-}

@@ -13,6 +13,8 @@ import AddScene from './Components/AddScene';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Admin from "./Components/Admin";
+
+import "./main.scss";
 import "./Components/style.scss";
 import Footer from "./Components/Footer";
 import MentionsLegales from './Components/MentionsLegales';

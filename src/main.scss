@@ -1,0 +1,25 @@
+
+
+// import the main.scss labstract
+@import './src/sass/abstract/variables.scss';
+@import './src/sass/abstract/mixins.scss';
+
+
+// import the main.scss base
+@import './src/sass/base/base.scss';
+
+// import the main.scss pages
+@import './src/sass/pages/mentions_legales.scss';
+@import './src/sass/pages/authentification.scss';
+@import './src/sass/pages/about.scss';
+@import './src/sass/pages/error.scss';
+
+// import the main.scss components
+@import './src/sass/components/pagination.scss';
+@import './src/sass/components/warningDeleteModal.scss';
+
+// import the main.scss layout
+@import './src/sass/layout/footer.scss';
+
+// import the main.scss vendors
+@import './src/sass/vendors/url.scss';

@@ -1,0 +1,23 @@
+
+.warning_delete {
+    border: white 1px solid;
+    padding : 3%;
+    // font-family: $Dancing_script;
+
+    .answer_yes_no {
+        @include space_row_flex_display;
+        align-items: center;
+        height: 100%;
+        font-size: 35px;
+
+        p{
+            cursor: pointer;
+            color: $color_text;
+        }
+    }
+}
+
+
+.hidden_warning_delete {
+    display: none;
+}

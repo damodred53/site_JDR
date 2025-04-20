@@ -45,7 +45,7 @@ const SceneCard = () => {
     }, [id]);
 
     /* fonction permettant l'ouverture de la modale ou sa fermeture */
-    const handleDelete = () => {
+    const cancelDelete = () => {
         setIsModalOpen(!isModalOpen);
     }
 
@@ -64,26 +64,19 @@ const SceneCard = () => {
 
     return (
         <div className="main_card">
-
+      
             <div className={`${isModalOpen ? "myModal_warning_delete" : "hidden_warning_delete"}`}>
                 <div className='warning_delete'>
 
                     <h1>Êtes-vous sur de vouloir supprimer cette scène ?</h1>
-                    <div className={`${isModalOpen ? "myModal_warning_delete" : "hidden_warning_delete"}`}>
-                        <div className='warning_delete'>
-
-                            <h1>Êtes-vous sur de vouloir supprimer cette scène ?</h1>
-                            <div className='answer_yes_no'>
-                                <Link to={`/`}>
-                                    <p onClick={handleErase}>OUI</p>
-                                </Link>
-                                <p onClick={handleDelete}>NON</p>
-                            </div>
-                        </div>
+                    <div className='answer_yes_no'>
+                        <Link to={`/`}>
+                            <p onClick={handleErase}>OUI</p>
+                        </Link>
+                        <p onClick={cancelDelete}>NON</p>
                     </div>
                 </div>
             </div>
-
 
             {hasToken ?
                 <div className="instruction_auth_scene_card">
@@ -95,7 +88,7 @@ const SceneCard = () => {
 
 
                     <span className='material_symbols_outlined'>
-                        <img src={Bin} alt="icone de suppression de la scène" onClick={handleDelete}/>
+                        <img src={Bin} alt="icone de suppression de la scène" onClick={cancelDelete}/>
                     </span>
                 </div>
                 :

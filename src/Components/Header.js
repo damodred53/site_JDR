@@ -48,9 +48,9 @@ const Header = () => {
 
     return (
         <div className="header">
-            <div className="welcome_and_navbar">
+            <div className="welcome_and_navbar ">
                 <h1>
-                    <Link to="/" className="home_title" onClick={() => setAccueilActive(true)}>
+                    <Link to="/" className="home_title " onClick={() => setAccueilActive(true)}>
                         Bienvenue sur le Scenatorium
                     </Link>
                 </h1>

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&family=Dancing+Script:wght@400;500;600;700&family=Tektur&family=Yusei+Magic&display=swap');
+
+
+*{
+    margin: 0;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+}
+
+h1, h2, h3, h4, h5, h6, p, label, input, button, a, div{
+    font-family: $Dancing_script;
+}

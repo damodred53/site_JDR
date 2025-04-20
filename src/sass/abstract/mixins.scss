@@ -1,0 +1,37 @@
+
+@mixin center_column_flex_display {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} 
+
+@mixin center_row_flex_display {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin space_row_flex_display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin center_column_spaced {
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+}
+
+
+@mixin black_border {
+border: black 1px solid;
+}
+
+@mixin underline {
+border-bottom: white 1px solid;
+}

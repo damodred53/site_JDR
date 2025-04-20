@@ -1,0 +1,44 @@
+
+// page mentions légales //
+
+.mentions_legales {
+    height:100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../../assets/girl_warrior.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 3rem;
+    h1 {
+        font-size: 50px;
+        // font-family: $Dancing_script;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 5%;
+        padding-bottom: 3rem;
+    }
+
+    h2 {
+        font-size: 40px;
+        // font-family: $Dancing_script;
+        font-weight: bold;
+        text-align: center;
+        padding-top: 5%;
+    }
+
+    p {
+        font-size: 35px;
+        // font-family: $Dancing_script;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    a {
+        color: white;
+        font-size: 35px;
+        // font-family: $Dancing_script;
+        font-weight: bold;
+        text-align: center;
+    }
+}

@@ -1,0 +1,44 @@
+
+.cards_area {
+    width: 100%;
+    @include center_column_flex_display;
+
+    .pagination_main {
+        @include space_row_flex_display;
+        border: 1px white solid;
+        background-color: rgba(0, 0, 0, 0.4);
+        border-radius: $border_radius;
+        color:$color_text;
+        width: 30%;
+        font-size: 30px;
+        padding: 2%;
+        // font-family: $Dancing_script;
+        font-weight: bold;
+        margin-top: 2%;
+
+        .paginationActive{
+            color: red;
+        }
+
+        .paginationDisabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        :hover {
+            color: red;
+            text-decoration: underline;
+        }
+
+        li{
+            list-style: none;
+            cursor: pointer;
+        }
+
+        @media (max-width: 1000px) {
+            width: 50%;
+        }
+        
+    }
+   
+}

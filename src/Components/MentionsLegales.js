@@ -3,8 +3,8 @@ import React from "react";
 const MentionsLegales = () => {
   return (
     <div className="mentions_legales">
-      <h1 className="title">Mentions légales</h1>
-      <p className="date">En vigueur au 22/02/2025</p>
+      <h1 className="title mentions_legales_title">Mentions légales</h1>
+      <p className="date mentions_legales_paragraph">En vigueur au 22/02/2025</p>
 
       <p>
         Conformément aux dispositions de la loi n°2004-575 du 21 juin 2004 pour la Confiance en l’économie numérique, il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'{" "}

@@ -1,0 +1,36 @@
+
+.about_text_presentation {
+    color: $color_text;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+    font-weight: bold;
+    background-image: url('../../assets/foret_fantasy_1.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    .about_text_presentation_text {
+    font-size: 40px;
+    width: 50%;
+    background-color: rgba(0, 0, 0, 0.7);
+    border : $color_text 2px solid;
+    border-radius: $border_radius;
+    padding: 1% 2% 1% 2%;
+    margin: 2% ;
+    box-shadow: 
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, 
+    rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+    @media (max-width: 960px) {
+        width: 100%;
+    }
+
+    @media (max-width: 550px) {
+        font-size: 30px;
+    }
+    }
+}

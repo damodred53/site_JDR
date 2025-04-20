@@ -1,0 +1,61 @@
+
+
+.footer {
+    
+    @include center_row_flex_display;
+    // font-family: $Dancing_script;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    font-size: 24px;
+    background-color: black;
+    gap: 5%;
+
+    @media (max-width:850px ) {
+        @include center_column_flex_display;
+        margin-top: 2rem;
+        row-gap: 1rem;
+    }
+       
+        &_title {
+            color: $color_text;
+        }
+
+        &_buttons_zone {
+            // @include center_column_flex_display;
+            width: 100%;
+            padding-top: 2%;
+            padding-bottom: 2%;
+
+
+        &_button {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-style: italic;
+            width: fit-content;
+            height: auto;
+            font-size: 24px;
+            border: white 1px solid;
+            cursor: pointer;
+            white-space: nowrap;
+            padding: 1rem;
+
+
+            &_button:hover {
+            color: green;
+            border: green 1px solid;
+            }
+
+            &_mention_legales {
+                margin-left: 2rem;
+            }
+            
+        }
+        }
+    }
+
+        
+       
